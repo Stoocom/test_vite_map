@@ -1,5 +1,5 @@
 // import React from "react";
-import { DomEvent, DomEventHandlerObject, LngLat } from "@yandex/ymaps3-types";
+import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
 import { useState } from "react";
 import {
