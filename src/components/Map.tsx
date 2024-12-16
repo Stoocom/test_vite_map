@@ -1,5 +1,6 @@
 // import React from "react";
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
+import { useCallback, useState } from "react";
 import {
   YMap,
   YMapComponentsProvider,
@@ -23,10 +24,15 @@ import {
 // import { features } from "./helpers";
 
 function Map() {
-  const updateHandler = (event: any) => {
-    console.log("updateHandler", event);
-  };
-
+  const [location, setLocation] = useState({});
+  const onUpdate = useCallback(({ location, mapInAction }: any) => {
+    if (!mapInAction) {
+      setLocation({
+        center: location.center,
+        zoom: location.zoom,
+      });
+    }
+  }, []);
   return (
     <div className="container">
       <YMapComponentsProvider apiKey={"c8214d76-a83c-48a0-ac30-18f3a3f2ccb0"}>
@@ -41,7 +47,7 @@ function Map() {
             <YMapGeolocationControl />
           </YMapControls>
           <YMapListener
-            onUpdate={updateHandler}
+            onUpdate={onUpdate}
             onClick={(object: DomEventHandlerObject, event: DomEvent) => {
               console.log("object", object);
               console.log("event", event);
