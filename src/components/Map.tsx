@@ -23,6 +23,10 @@ import {
 // import { features } from "./helpers";
 
 function Map() {
+  const updateHandler = (event: any) => {
+    console.log("updateHandler", event);
+  };
+
   return (
     <div className="container">
       <YMapComponentsProvider apiKey={"c8214d76-a83c-48a0-ac30-18f3a3f2ccb0"}>
@@ -37,6 +41,7 @@ function Map() {
             <YMapGeolocationControl />
           </YMapControls>
           <YMapListener
+            onUpdate={updateHandler}
             onClick={(object: DomEventHandlerObject, event: DomEvent) => {
               console.log("object", object);
               console.log("event", event);
