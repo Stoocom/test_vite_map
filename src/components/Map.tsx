@@ -1,5 +1,5 @@
 // import React from "react";
-import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
+import { DomEvent, DomEventHandlerObject, LngLat } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
 import { useState } from "react";
 import {
@@ -29,11 +29,18 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
+  const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
+    37.95, 55.65,
+  ]);
   const updateHandler = ({ location, mapInAction }: any) => {
     console.log("location", location);
     console.log("mapInAction", mapInAction);
     console.log("mapInAction", mapInAction);
-    setAddLocation(location.center);
+    setAddLocation({
+      center: location.center,
+      zoom: location.zoom,
+    });
+    // setDefaultCoordinates();
   };
 
   return (
