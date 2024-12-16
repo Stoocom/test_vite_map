@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
+import "./Form.css";
 
 const Form: FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -40,62 +41,56 @@ const Form: FC = () => {
   };
 
   return (
-    <div className="">
-      <form
-        className=""
-        onSubmit={isLogin ? regSubmitHandler : logSubmitHandler}
-      >
-        <h1 className="">{isLogin ? "Registration" : "Login"}</h1>
-        <div className="">
-          <label className="" htmlFor="email">
-            Email
-          </label>
-          <input
-            className=""
-            id="email"
-            value={email}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            type="text"
-            placeholder="email"
-          />
-        </div>
-        <div className="">
-          <label className="" htmlFor="password">
-            Password
-          </label>
-          <input
-            className=""
-            id="password"
-            value={password}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-            type="password"
-            placeholder="password"
-          />
-          {/* <p className="text-red-500 text-xs italic">
+    <form className="" onSubmit={isLogin ? regSubmitHandler : logSubmitHandler}>
+      <h2 className="">{isLogin ? "Registration" : "Login"}</h2>
+      <div className="">
+        <label className="" htmlFor="email">
+          Email
+        </label>
+        <input
+          className=""
+          id="email"
+          value={email}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
+          type="text"
+          placeholder="email"
+        />
+      </div>
+      <div className="">
+        <label className="" htmlFor="password">
+          Password
+        </label>
+        <input
+          className=""
+          id="password"
+          value={password}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
+          type="password"
+          placeholder="password"
+        />
+        {/* <p className="text-red-500 text-xs italic">
                     Please choose a password.
                     </p> */}
-        </div>
-        <div className="">
-          <button className="" type="submit">
-            {isLogin ? "Sign Up" : "Sign In"}
-          </button>
-          {/* <a
+      </div>
+      <div className="">
+        <button className="" type="submit">
+          {isLogin ? "Sign Up" : "Sign In"}
+        </button>
+        {/* <a
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
               href="#"
             >
               Forgot Password?
             </a> */}
-          <a className="" href="#" onClick={() => setIsLogin(!isLogin)}>
-            {isLogin ? "To login" : "To register"}
-          </a>
-        </div>
-      </form>
-      <p className=""></p>
-    </div>
+        <a className="" href="#" onClick={() => setIsLogin(!isLogin)}>
+          {isLogin ? "To login" : "To register"}
+        </a>
+      </div>
+    </form>
   );
 };
 
