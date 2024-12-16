@@ -4,12 +4,19 @@ import Map from "./components/Map";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getIsOpenAddMarker,
+  getIsOpenForm,
   toggleOpenAddMarker,
-} from "./service/store/slices/markersSlice";
+  toggleOpenForm,
+} from "./services/store/slices/markersSlice";
+import { MdOutlineAddLocationAlt } from "react-icons/md";
+import { RiLoginCircleLine } from "react-icons/ri";
+import ModalWrapper from "./components/ModalWrapper";
+import Form from "./components/Form";
 
 function App() {
   const dispatch = useDispatch();
   const { isOpenAddMarker } = useSelector(getIsOpenAddMarker);
+  const isOpenLogRegForm = useSelector(getIsOpenForm);
   // useEffect(() => {
   //   console.log("useEffect");
   //   fetch("http://localhost:3010/api/auth/profile", {
@@ -34,8 +41,26 @@ function App() {
       <div
         style={{
           position: "absolute",
-          top: 50,
-          right: 50,
+          top: 30,
+          right: 20,
+          width: 60,
+          height: 60,
+          background: "#afe0b4",
+          zIndex: 2,
+          borderRadius: 50,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        onClick={() => dispatch(toggleOpenForm())}
+      >
+        <RiLoginCircleLine size={36} color="white" title="New" />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: 100,
+          right: 20,
           width: 60,
           height: 60,
           background: isOpenAddMarker ? "#60d66c" : "#afe0b4",
@@ -47,7 +72,8 @@ function App() {
         }}
         onClick={() => dispatch(toggleOpenAddMarker())}
       >
-        <svg
+        <MdOutlineAddLocationAlt size={36} color="white" />
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -60,9 +86,14 @@ function App() {
             strokeLinejoin="round"
             d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
           />
-        </svg>
+        </svg> */}
       </div>
       <Map />
+      {isOpenLogRegForm && (
+        <ModalWrapper>
+          <Form />
+        </ModalWrapper>
+      )}
     </>
   );
 }

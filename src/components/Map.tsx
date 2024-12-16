@@ -23,7 +23,7 @@ import {
   //   YMapMarker,
   //   YMapClusterer,
 } from "ymap3-components";
-import { getIsOpenAddMarker } from "../service/store/slices/markersSlice";
+import { getIsOpenAddMarker } from "../services/store/slices/markersSlice";
 // import { features } from "./helpers";
 
 function Map() {
