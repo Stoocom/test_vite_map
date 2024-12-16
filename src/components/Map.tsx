@@ -2,6 +2,7 @@
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   YMap,
   YMapComponentsProvider,
@@ -22,6 +23,7 @@ import {
   //   YMapMarker,
   //   YMapClusterer,
 } from "ymap3-components";
+import { getIsOpenAddMarker } from "../service/store/slices/markersSlice";
 // import { features } from "./helpers";
 
 function Map() {
@@ -29,6 +31,9 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
+
+  const { isOpenAddMarker } = useSelector(getIsOpenAddMarker);
+  console.log("isOpenAddMarker", isOpenAddMarker);
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
   //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
   //     37.95, 55.65,
@@ -50,7 +55,9 @@ function Map() {
         <YMap location={addLocation}>
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
-          <YMapDefaultMarker coordinates={addLocation.center} />
+          {isOpenAddMarker && (
+            <YMapDefaultMarker coordinates={addLocation.center} />
+          )}
           <YMapControls position="bottom">
             <YMapZoomControl />
           </YMapControls>
