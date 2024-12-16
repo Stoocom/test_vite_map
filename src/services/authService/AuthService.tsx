@@ -1,4 +1,4 @@
-import { IResponceUserData, IUserData } from "../../types/types";
+import { IUserData } from "../../types/types";
 import { axiosInstance } from "./axios.instance";
 
 export const AuthService = {

@@ -1,7 +1,5 @@
-import { ChangeEvent, FC, FormEvent, useState } from "react";
-import AuthService from "../../services/authService";
+import { FC } from "react";
 import Modal from "react-modal";
-import { toast } from "react-toastify";
 
 const ModalWrapper: FC = ({ children }: any) => {
   const customStyles = {
