@@ -41,9 +41,7 @@ function Map() {
             <YMapGeolocationControl />
           </YMapControls>
           <YMapListener
-            onUpdate={(event: any) => {
-              console.log("updateHandler", event);
-            }}
+            onUpdate={updateHandler}
             onClick={(object: DomEventHandlerObject, event: DomEvent) => {
               console.log("object", object);
               console.log("event", event);
