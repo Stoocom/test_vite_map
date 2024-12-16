@@ -5,4 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: "/test_vite_map",
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3010',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })
