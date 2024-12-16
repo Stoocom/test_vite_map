@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import "./App.css";
 import Map from "./components/Map";
 import { useDispatch, useSelector } from "react-redux";
