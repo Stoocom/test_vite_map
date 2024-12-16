@@ -4,21 +4,21 @@ import {
   YMapComponentsProvider,
   YMapDefaultSchemeLayer,
   YMapDefaultFeaturesLayer,
-  YMapListener,
-  YMapFeature,
-  YMapCollection,
-  YMapControls,
-  YMapGeolocationControl,
-  YMapZoomControl,
-  YMapHint,
+  //   YMapListener,
+  //   YMapFeature,
+  //   YMapCollection,
+  //   YMapControls,
+  //   YMapGeolocationControl,
+  //   YMapZoomControl,
+  //   YMapHint,
   YMapDefaultMarker,
-  YMapContainer,
-  YMapControlButton,
-  YMapHintContext,
-  YMapMarker,
-  YMapClusterer,
+  //   YMapContainer,
+  //   YMapControlButton,
+  //   YMapHintContext,
+  //   YMapMarker,
+  //   YMapClusterer,
 } from "ymap3-components";
-import { features } from "./helpers";
+// import { features } from "./helpers";
 
 function Map() {
   return (
