@@ -19,7 +19,6 @@ const ModalWrapper = ({ children }: { children: ReactNode }) => {
   };
 
   const [open, setOpen] = useState(true);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     dispatch(toggleOpenForm());
