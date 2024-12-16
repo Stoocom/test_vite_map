@@ -11,7 +11,7 @@ function App() {
           right: 50,
           width: 60,
           height: 60,
-          background: "green",
+          background: "#60d66c",
           zIndex: 2,
           borderRadius: 50,
           display: "flex",
