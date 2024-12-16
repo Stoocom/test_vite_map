@@ -29,6 +29,7 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
+  //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
   //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
   //     37.95, 55.65,
   //   ]);
