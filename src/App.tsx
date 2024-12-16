@@ -24,7 +24,7 @@ function App() {
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          stroke="currentColor"
+          stroke="white"
           className="size-6"
         >
           <path
