@@ -29,9 +29,9 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
-  const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
-    37.95, 55.65,
-  ]);
+  //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
+  //     37.95, 55.65,
+  //   ]);
   const updateHandler = ({ location, mapInAction }: any) => {
     console.log("location", location);
     console.log("mapInAction", mapInAction);
