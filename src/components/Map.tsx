@@ -1,4 +1,5 @@
 // import React from "react";
+import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import {
   YMap,
   YMapComponentsProvider,
@@ -12,6 +13,7 @@ import {
   YMapZoomControl,
   //   YMapHint,
   YMapDefaultMarker,
+  YMapListener,
   //   YMapContainer,
   //   YMapControlButton,
   //   YMapHintContext,
@@ -34,6 +36,12 @@ function Map() {
           <YMapControls position="bottom left">
             <YMapGeolocationControl />
           </YMapControls>
+          <YMapListener
+            onClick={(object: DomEventHandlerObject, event: DomEvent) => {
+              console.log("object", object);
+              console.log("event", event);
+            }}
+          />
         </YMap>
       </YMapComponentsProvider>
     </div>
