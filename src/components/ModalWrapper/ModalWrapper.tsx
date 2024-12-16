@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { ReactNode } from "react";
 import Modal from "react-modal";
 
-const ModalWrapper: FC = ({ children }: any) => {
+const ModalWrapper = ({ children }: { children: ReactNode }) => {
   const customStyles = {
     content: {
       top: "50%",
