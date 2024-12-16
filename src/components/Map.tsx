@@ -7,9 +7,9 @@ import {
   //   YMapListener,
   //   YMapFeature,
   //   YMapCollection,
-  //   YMapControls,
-  //   YMapGeolocationControl,
-  //   YMapZoomControl,
+  YMapControls,
+  YMapGeolocationControl,
+  YMapZoomControl,
   //   YMapHint,
   YMapDefaultMarker,
   //   YMapContainer,
@@ -28,6 +28,12 @@ function Map() {
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           <YMapDefaultMarker coordinates={[37.95, 55.65]} />
+          <YMapControls position="bottom">
+            <YMapZoomControl />
+          </YMapControls>
+          <YMapControls position="bottom left">
+            <YMapGeolocationControl />
+          </YMapControls>
         </YMap>
       </YMapComponentsProvider>
     </div>
