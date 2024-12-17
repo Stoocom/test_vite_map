@@ -2,6 +2,7 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
 import "./Form.css";
+import { Button, Link, Stack, TextField, Typography } from "@mui/material";
 
 const Form: FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -42,54 +43,46 @@ const Form: FC = () => {
 
   return (
     <form className="" onSubmit={isLogin ? regSubmitHandler : logSubmitHandler}>
-      <h2 className="">{isLogin ? "Registration" : "Login"}</h2>
-      <div className="">
-        <label className="" htmlFor="email">
-          Email
-        </label>
-        <input
-          className=""
-          id="email"
-          value={email}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setEmail(e.target.value)
-          }
-          type="text"
-          placeholder="email"
-        />
-      </div>
-      <div className="">
-        <label className="" htmlFor="password">
-          Password
-        </label>
-        <input
-          className=""
-          id="password"
-          value={password}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setPassword(e.target.value)
-          }
-          type="password"
-          placeholder="password"
-        />
-        {/* <p className="text-red-500 text-xs italic">
-                    Please choose a password.
-                    </p> */}
-      </div>
-      <div className="">
-        <button className="" type="submit">
+      <Typography variant="h4" gutterBottom>
+        {isLogin ? "Registration" : "Login"}
+      </Typography>
+      <TextField
+        label="Email"
+        name="email"
+        value={email}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Password"
+        name="password"
+        value={password}
+        type="password"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
+        fullWidth
+        margin="normal"
+      />
+      <Stack
+        spacing={{ sm: 4 }}
+        direction="row"
+        sx={{
+          mt: 2,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Button type="submit" variant="contained" color="primary">
           {isLogin ? "Sign Up" : "Sign In"}
-        </button>
-        {/* <a
-              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="#"
-            >
-              Forgot Password?
-            </a> */}
-        <a className="" href="#" onClick={() => setIsLogin(!isLogin)}>
+        </Button>
+        <Link href="#" underline="none" onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? "To login" : "To register"}
-        </a>
-      </div>
+        </Link>
+      </Stack>
     </form>
   );
 };
