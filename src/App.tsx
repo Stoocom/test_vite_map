@@ -12,6 +12,8 @@ import { MdOutlineAddLocationAlt } from "react-icons/md";
 import { RiLoginCircleLine } from "react-icons/ri";
 import ModalWrapper from "./components/ModalWrapper";
 import Form from "./components/Form";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -94,6 +96,11 @@ function App() {
           <Form />
         </ModalWrapper>
       )}
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        hideProgressBar={true}
+      />
     </>
   );
 }
