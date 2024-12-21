@@ -65,14 +65,14 @@ function Map() {
                   style={{
                     position: "absolute",
                     width: 50,
-                    height: 40,
-                    top: -40,
+                    height: 60,
+                    top: -60,
                     left: -25,
                     display: "flex",
                     justifyContent: "center",
                   }}
                 >
-                  <MdAddLocationAlt size={40} color="green" title="New" />
+                  <MdAddLocationAlt size={60} color="#60d66c" title="New" />
                 </div>
               </div>
             </YMapMarker>
