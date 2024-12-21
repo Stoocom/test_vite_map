@@ -56,9 +56,10 @@ function Map() {
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
-            <YMapDefaultMarker coordinates={addLocation.center}>
-              <div>12</div>
-            </YMapDefaultMarker>
+            <YMapDefaultMarker
+              coordinates={addLocation.center}
+              children={<div>12</div>}
+            ></YMapDefaultMarker>
             // title="Hello World!"
             // subtitle="kind and bright"
             // color="blue"
