@@ -15,7 +15,8 @@ import {
   YMapGeolocationControl,
   YMapZoomControl,
   //   YMapHint,
-  YMapDefaultMarker,
+  // YMapDefaultMarker,
+  YMapMarker,
   YMapListener,
   //   YMapContainer,
   //   YMapControlButton,
@@ -56,10 +57,9 @@ function Map() {
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
-            <YMapDefaultMarker
-              coordinates={addLocation.center}
-              children={<div>12</div>}
-            ></YMapDefaultMarker>
+            <YMapMarker coordinates={addLocation.center}>
+              <div>12</div>
+            </YMapMarker>
             // title="Hello World!"
             // subtitle="kind and bright"
             // color="blue"
