@@ -25,6 +25,8 @@ import {
   //   YMapClusterer,
 } from "ymap3-components";
 import { getIsOpenAddMarker } from "../services/store/slices/markersSlice";
+import { MdAddLocationAlt } from "react-icons/md";
+
 // import { features } from "./helpers";
 
 function Map() {
@@ -67,8 +69,12 @@ function Map() {
                     top: -100,
                     left: -25,
                     background: "green",
+                    display: "flex",
+                    justifyContent: "center",
                   }}
-                ></div>
+                >
+                  <MdAddLocationAlt size={33} color="white" title="New" />
+                </div>
               </div>
             </YMapMarker>
             // title="Hello World!"
