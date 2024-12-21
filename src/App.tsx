@@ -4,60 +4,76 @@ import Map from "./components/Map";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getIsOpenAddMarker,
-  getIsOpenForm,
   toggleOpenAddMarker,
-  toggleOpenForm,
 } from "./services/store/slices/markersSlice";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
 import { RiLoginCircleLine } from "react-icons/ri";
+import { FaRegCircleUser } from "react-icons/fa6";
 import ModalWrapper from "./components/ModalWrapper";
 import Form from "./components/Form";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  getProfile,
+  toggleOpenLoginForm,
+} from "./services/store/slices/profileSlice";
+import { useEffect } from "react";
+import { sendFile } from "./services/yandexDisk/api";
+
+// const info_url = "https://cloud-api.yandex.net/v1/disk/";
+// const public_resources =
+//   "https://cloud-api.yandex.net/v1/disk/resources/public";
 
 function App() {
   const dispatch = useDispatch();
   const { isOpenAddMarker } = useSelector(getIsOpenAddMarker);
-  const isOpenLogRegForm = useSelector(getIsOpenForm);
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   fetch("http://localhost:3010/api/auth/profile", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization:
-  //         "Bearer " +
-  //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsImxvZ2luIjoidXNlcjEiLCJpYXQiOjE3MzQxMjU0OTQsImV4cCI6MTczNTMzNTA5NH0.4stleGLtj4Wmb7Ai7YzhfFW59Hu38j7MEw0uNuPmbNo",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
-  //       console.log(responseData);
-  //       // toast("responseData");
-  //     })
-  //     .catch((error) => {
-  //       console.log("error", error);
-  //     });
-  // }, []);
+  const { isOpenLoginForm, profile } = useSelector(getProfile);
+  console.log("profile", profile.login);
+  useEffect(() => {
+    console.log("useEffect");
+    sendFile();
+  }, []);
   return (
     <>
-      <div
-        style={{
-          position: "absolute",
-          top: 30,
-          right: 20,
-          width: 60,
-          height: 60,
-          background: "#afe0b4",
-          zIndex: 2,
-          borderRadius: 50,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        onClick={() => dispatch(toggleOpenForm())}
-      >
-        <RiLoginCircleLine size={36} color="white" title="New" />
-      </div>
+      {profile?.email ? (
+        <div
+          style={{
+            position: "absolute",
+            top: 30,
+            right: 20,
+            width: 60,
+            height: 60,
+            background: "#afe0b4",
+            zIndex: 2,
+            borderRadius: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={() => dispatch(toggleOpenLoginForm())}
+        >
+          <FaRegCircleUser size={31} color="white" title="New" />
+        </div>
+      ) : (
+        <div
+          style={{
+            position: "absolute",
+            top: 30,
+            right: 20,
+            width: 60,
+            height: 60,
+            background: "#afe0b4",
+            zIndex: 2,
+            borderRadius: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={() => dispatch(toggleOpenLoginForm())}
+        >
+          <RiLoginCircleLine size={36} color="white" title="New" />
+        </div>
+      )}
       <div
         style={{
           position: "absolute",
@@ -91,7 +107,7 @@ function App() {
         </svg> */}
       </div>
       <Map />
-      {isOpenLogRegForm && (
+      {isOpenLoginForm && (
         <ModalWrapper>
           <Form />
         </ModalWrapper>

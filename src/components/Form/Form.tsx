@@ -2,12 +2,39 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
 import "./Form.css";
-import { Button, Link, Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Link,
+  Stack,
+  // styled,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { setValueToLocalStorage } from "../../services/localStorage/api";
+import {
+  toggleOpenLoginForm,
+  setProfile,
+} from "../../services/store/slices/profileSlice";
+import { useDispatch } from "react-redux";
+
+// const VisuallyHiddenInput = styled("input")({
+//   clip: "rect(0 0 0 0)",
+//   clipPath: "inset(50%)",
+//   height: 1,
+//   overflow: "hidden",
+//   position: "absolute",
+//   bottom: 0,
+//   left: 0,
+//   whiteSpace: "nowrap",
+//   width: 1,
+// });
 
 const Form: FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
+  // const [file, setFile] = useState<any>();
   const [password, setPassword] = useState<string>("");
+  const dispatch = useDispatch();
 
   const regSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
     try {
@@ -18,6 +45,14 @@ const Form: FC = () => {
         name: "Alexander",
       });
       if (data) {
+        setValueToLocalStorage("access_token", data.access_token);
+        dispatch(
+          setProfile({
+            id: data.id,
+            email: data.login,
+          })
+        );
+        dispatch(toggleOpenLoginForm());
         toast.success("Account has been created");
       }
     } catch (error: any) {
@@ -34,6 +69,14 @@ const Form: FC = () => {
         password: password,
       });
       if (data) {
+        // setValueToLocalStorage("access_token", data.access_token);
+        dispatch(
+          setProfile({
+            id: data.id,
+            email: data.login,
+          })
+        );
+        dispatch(toggleOpenLoginForm());
         toast.success("Log in successfully");
       }
     } catch (error: any) {

@@ -56,7 +56,12 @@ function Map() {
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
-            <YMapDefaultMarker coordinates={addLocation.center} />
+            <YMapDefaultMarker
+              coordinates={addLocation.center}
+              title="Hello World!"
+              subtitle="kind and bright"
+              color="blue"
+            />
           )}
           <YMapControls position="bottom">
             <YMapZoomControl />

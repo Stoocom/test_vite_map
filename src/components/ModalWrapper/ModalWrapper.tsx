@@ -2,8 +2,8 @@ import { ReactNode, useState } from "react";
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleOpenForm } from "../../services/store/slices/markersSlice";
 import "./ModalWrapper.css";
+import { toggleOpenLoginForm } from "../../services/store/slices/profileSlice";
 
 const ModalWrapper = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const ModalWrapper = ({ children }: { children: ReactNode }) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => {
     setOpen(false);
-    dispatch(toggleOpenForm());
+    dispatch(toggleOpenLoginForm());
   };
 
   return (
