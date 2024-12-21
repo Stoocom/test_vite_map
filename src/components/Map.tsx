@@ -15,8 +15,8 @@ import {
   YMapGeolocationControl,
   YMapZoomControl,
   //   YMapHint,
-  // YMapDefaultMarker,
-  YMapMarker,
+  YMapDefaultMarker,
+  // YMapMarker,
   YMapListener,
   //   YMapContainer,
   //   YMapControlButton,
@@ -25,7 +25,7 @@ import {
   //   YMapClusterer,
 } from "ymap3-components";
 import { getIsOpenAddMarker } from "../services/store/slices/markersSlice";
-import { MdAddLocationAlt } from "react-icons/md";
+// import { MdAddLocationAlt } from "react-icons/md";
 
 // import { features } from "./helpers";
 
@@ -59,8 +59,8 @@ function Map() {
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
-            <YMapMarker coordinates={addLocation.center}>
-              <div style={{ position: "relative", width: 1, height: 1 }}>
+            <YMapDefaultMarker coordinates={addLocation.center}>
+              {/* <div style={{ position: "relative", width: 1, height: 1 }}>
                 <div
                   style={{
                     position: "absolute",
@@ -74,8 +74,8 @@ function Map() {
                 >
                   <MdAddLocationAlt size={60} color="#60d66c" title="New" />
                 </div>
-              </div>
-            </YMapMarker>
+              </div> */}
+            </YMapDefaultMarker>
             // title="Hello World!"
             // subtitle="kind and bright"
             // color="blue"
