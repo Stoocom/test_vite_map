@@ -27,6 +27,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  background: blueviolet;
+  border-radius: 50%;
+  background: rgb(171, 230, 88);
 }
