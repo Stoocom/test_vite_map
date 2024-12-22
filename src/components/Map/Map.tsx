@@ -29,7 +29,8 @@ import {
   openAddMarkerForm,
 } from "../../services/store/slices/markersSlice";
 // import { MdAddLocationAlt } from "react-icons/md";
-import { SlLocationPin } from "react-icons/sl";
+// import { SlLocationPin } from "react-icons/sl";
+import { MdLocationOn } from "react-icons/md";
 import { LuSquareDashedMousePointer } from "react-icons/lu";
 import "./Map.css";
 
@@ -78,7 +79,7 @@ function Map() {
                     // console.log("onClick");
                   }}
                 >
-                  <SlLocationPin size={70} color="#ff3333" title="New" />
+                  <MdLocationOn size={70} color="#ff3333" title="New" />
                 </div>
                 <div
                   className="coords"
