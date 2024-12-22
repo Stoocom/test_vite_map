@@ -18,7 +18,7 @@ import {
 } from "./services/store/slices/profileSlice";
 import { useEffect } from "react";
 import { sendFile } from "./services/yandexDisk/api";
-import Map from "./components/Map";
+import Map from "./components/Map/Map";
 
 // const info_url = "https://cloud-api.yandex.net/v1/disk/";
 // const public_resources =
