@@ -26,7 +26,7 @@ import {
 } from "ymap3-components";
 import { getIsOpenAddMarker } from "../../services/store/slices/markersSlice";
 import { MdAddLocationAlt } from "react-icons/md";
-import "./Map.scss";
+import "./Map.css";
 
 // import { features } from "./helpers";
 
