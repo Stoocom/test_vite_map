@@ -5,8 +5,13 @@ import { useDispatch } from "react-redux";
 import "./ModalWrapper.css";
 import { toggleOpenLoginForm } from "../../services/store/slices/profileSlice";
 
-const ModalWrapper = ({ children }: { children: ReactNode }) => {
-  const dispatch = useDispatch();
+const ModalWrapper = ({
+  close,
+  children,
+}: {
+  close: () => void;
+  children: ReactNode;
+}) => {
   const style = {
     position: "absolute",
     top: "50%",
@@ -21,7 +26,7 @@ const ModalWrapper = ({ children }: { children: ReactNode }) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => {
     setOpen(false);
-    dispatch(toggleOpenLoginForm());
+    close();
   };
 
   return (

@@ -3,6 +3,7 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getMarkers,
+  openAddMarkerForm,
   toggleOpenAddMarker,
 } from "./services/store/slices/markersSlice";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
@@ -108,12 +109,12 @@ function App() {
       </div>
       <Map />
       {isOpenLoginForm && (
-        <ModalWrapper>
+        <ModalWrapper close={() => dispatch(toggleOpenLoginForm())}>
           <Form />
         </ModalWrapper>
       )}
       {isOpenAddMarkerForm && (
-        <ModalWrapper>
+        <ModalWrapper close={() => dispatch(toggleOpenAddMarker())}>
           <Form />
         </ModalWrapper>
       )}
