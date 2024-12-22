@@ -18,15 +18,28 @@
   cursor: pointer;
 }
 
-.add_point .coords {
+.add_point .comment {
   position: absolute;
   width: 25px;
   height: 25px;
-  top: -70px;
-  left: -43px;
+  top: -57px;
+  left: -47px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgb(171, 230, 88);
+  background: #1F9D94
+}
+
+.add_point .photo {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -80px;
+  left: -35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #A9ED2F;
 }

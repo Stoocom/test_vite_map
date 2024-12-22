@@ -31,7 +31,9 @@ import {
 // import { MdAddLocationAlt } from "react-icons/md";
 // import { SlLocationPin } from "react-icons/sl";
 import { MdLocationOn } from "react-icons/md";
-import { LuSquareDashedMousePointer } from "react-icons/lu";
+// import { LuSquareDashedMousePointer } from "react-icons/lu";
+import { BsFeather } from "react-icons/bs";
+import { MdOutlinePhoto } from "react-icons/md";
 import "./Map.css";
 
 // import { features } from "./helpers";
@@ -82,17 +84,22 @@ function Map() {
                   <MdLocationOn size={70} color="#ff3333" title="New" />
                 </div>
                 <div
-                  className="coords"
+                  className="comment"
                   onClick={(event) => {
                     event.stopPropagation();
                     console.log("coords onClick");
                   }}
                 >
-                  <LuSquareDashedMousePointer
-                    size={15}
-                    color="#afe0b4"
-                    title="New"
-                  />
+                  <BsFeather size={15} color="white" title="New" />
+                </div>
+                <div
+                  className="photo"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    console.log("coords onClick");
+                  }}
+                >
+                  <MdOutlinePhoto size={15} color="white" title="New" />
                 </div>
               </div>
             </YMapMarker>
