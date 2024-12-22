@@ -30,6 +30,7 @@
   border-radius: 50%;
   background: #1F9D94;
   cursor: pointer;
+  transform: scale(1);
 }
 
 .add_point .photo {
@@ -44,10 +45,11 @@
   border-radius: 50%;
   background: #A9ED2F;
   cursor: pointer;
+  transform: scale(1);
 }
 
 .add_point .comment:hover, .add_point .photo:hover {
-  animation: scale_move_bigger 0.5s;
+  animation: scale_move_bigger 0.5s ease forwards;
 }
 
 @keyframes scale_move_bigger {
