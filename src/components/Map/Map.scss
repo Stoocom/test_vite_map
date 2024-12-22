@@ -1,18 +1,18 @@
 .add_point { 
-  position: relative;
+  position: "relative";
   width: 1;
   height: 1;
 
   &_marker {
-    position: absolute;
+    position: "absolute";
     width: 60;
     height: 70;
     top: -70;
     left: -30;
-    display: flex;
-    justify-content: center;
+    display: "flex";
+    justify-content: "center";
   }
   &_marker:hover {
-    cursor: pointer;
+    cursor: "pointer";
   }
 }
