@@ -69,7 +69,7 @@ function Map() {
                   className="add_point_marker"
                   onClick={() => console.log("onClick")}
                 >
-                  <MdAddLocationAlt size={80} color="#ff3333" title="New" />
+                  <MdAddLocationAlt size={70} color="#ff3333" title="New" />
                 </div>
               </div>
             </YMapMarker>
