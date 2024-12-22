@@ -67,7 +67,10 @@ function Map() {
               <div className="add_point">
                 <div
                   className="add_point_marker"
-                  onClick={() => console.log("onClick")}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    console.log("onClick");
+                  }}
                 >
                   <MdAddLocationAlt size={70} color="#ff3333" title="New" />
                 </div>
