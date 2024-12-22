@@ -119,7 +119,9 @@ function Map() {
                   // }}
                 >
                   <form>
-                    <button onClick={handleButtonClick}>Upload File</button>
+                    <button onClick={handleButtonClick}>
+                      <MdOutlinePhoto size={15} color="white" title="New" />
+                    </button>
                     <input
                       ref={inputRef}
                       type="file"
@@ -127,7 +129,6 @@ function Map() {
                       onChange={handleFileUpload}
                     />
                   </form>
-                  <MdOutlinePhoto size={15} color="white" title="New" />
                 </div>
               </div>
             </YMapMarker>
