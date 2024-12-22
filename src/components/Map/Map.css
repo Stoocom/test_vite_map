@@ -46,6 +46,7 @@
   background: #A9ED2F;
   cursor: pointer;
   transform: scale(1);
+  outline: 0 !important;
 }
 
 .upload {
@@ -54,6 +55,8 @@
   justify-content: center;
   align-items: center;
   padding: 0;
+  outline: 0 !important;
+  border: 0;
 }
 
 .add_point .comment:hover, .add_point .photo:hover {
