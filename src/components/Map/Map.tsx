@@ -54,7 +54,10 @@ function Map() {
 
   return (
     <div className="container">
-      <YMapComponentsProvider apiKey={"c8214d76-a83c-48a0-ac30-18f3a3f2ccb0"}>
+      <YMapComponentsProvider
+        apiKey={"c8214d76-a83c-48a0-ac30-18f3a3f2ccb0"}
+        lang={"ru_RU"}
+      >
         <YMap location={addLocation}>
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
