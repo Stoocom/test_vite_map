@@ -1,9 +1,7 @@
 import { ReactNode, useState } from "react";
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
-import { useDispatch } from "react-redux";
 import "./ModalWrapper.css";
-import { toggleOpenLoginForm } from "../../services/store/slices/profileSlice";
 
 const ModalWrapper = ({
   close,

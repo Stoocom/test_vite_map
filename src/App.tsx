@@ -114,7 +114,7 @@ function App() {
         </ModalWrapper>
       )}
       {isOpenAddMarkerForm && (
-        <ModalWrapper close={() => dispatch(toggleOpenAddMarker())}>
+        <ModalWrapper close={() => dispatch(openAddMarkerForm(false))}>
           <Form />
         </ModalWrapper>
       )}
