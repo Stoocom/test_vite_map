@@ -111,25 +111,25 @@ function Map() {
                 >
                   <BsFeather size={15} color="white" title="New" />
                 </div>
-                <div
+                {/* <div
                   className="photo"
                   // onClick={(event) => {
                   //   event.stopPropagation();
                   //   console.log("coords onClick");
                   // }}
-                >
-                  <form>
-                    <button onClick={handleButtonClick}>
-                      <MdOutlinePhoto size={15} color="white" title="New" />
-                    </button>
-                    <input
-                      ref={inputRef}
-                      type="file"
-                      hidden
-                      onChange={handleFileUpload}
-                    />
-                  </form>
-                </div>
+                > */}
+                <form className="photo">
+                  <button onClick={handleButtonClick}>
+                    <MdOutlinePhoto size={15} color="white" title="New" />
+                  </button>
+                  <input
+                    ref={inputRef}
+                    type="file"
+                    hidden
+                    onChange={handleFileUpload}
+                  />
+                </form>
+                {/* </div> */}
               </div>
             </YMapMarker>
             // title="Hello World!"
