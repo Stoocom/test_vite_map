@@ -43,7 +43,7 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
-  const fileInputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { isOpenAddMarker } = useSelector(getMarkers);
   const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
@@ -60,6 +60,25 @@ function Map() {
     });
     // setDefaultCoordinates();
   };
+
+  function handleButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    console.log("handleButtonClick");
+    if (!inputRef || !inputRef.current) return;
+
+    inputRef.current.click();
+  }
+
+  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = e.target.files;
+    console.log("handleFileUpload");
+    if (!files) return;
+
+    const file = files[0];
+
+    // use the file
+    console.log(file.name);
+  }
 
   return (
     <div className="container">
@@ -94,11 +113,20 @@ function Map() {
                 </div>
                 <div
                   className="photo"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    console.log("coords onClick");
-                  }}
+                  // onClick={(event) => {
+                  //   event.stopPropagation();
+                  //   console.log("coords onClick");
+                  // }}
                 >
+                  <form>
+                    <button onClick={handleButtonClick}>Upload File</button>
+                    <input
+                      ref={inputRef}
+                      type="file"
+                      hidden
+                      onChange={handleFileUpload}
+                    />
+                  </form>
                   <MdOutlinePhoto size={15} color="white" title="New" />
                 </div>
               </div>
@@ -122,13 +150,6 @@ function Map() {
           />
         </YMap>
       </YMapComponentsProvider>
-      <input
-        onChange={() => console.log("click!")}
-        multiple={false}
-        ref={fileInputRef}
-        type="file"
-        hidden
-      />
     </div>
   );
 }
