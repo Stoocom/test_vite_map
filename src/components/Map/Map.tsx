@@ -122,20 +122,12 @@ function Map() {
                       <MdOutlinePhoto size={15} color="white" title="New" />
                     }
                   >
-                    Upload files
                     <VisuallyHiddenInput
                       type="file"
                       onChange={(event) => console.log(event.target.files)}
                     />
                   </Button>
                 </div>
-                <input
-                  onChange={() => console.log("click!")}
-                  multiple={false}
-                  ref={fileInputRef}
-                  type="file"
-                  hidden
-                />
               </div>
             </YMapMarker>
             // title="Hello World!"
@@ -157,6 +149,13 @@ function Map() {
           />
         </YMap>
       </YMapComponentsProvider>
+      <input
+        onChange={() => console.log("click!")}
+        multiple={false}
+        ref={fileInputRef}
+        type="file"
+        hidden
+      />
     </div>
   );
 }
