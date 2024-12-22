@@ -105,29 +105,30 @@ function Map() {
                 >
                   <BsFeather size={15} color="white" title="New" />
                 </div>
-                <div
+                {/* <div
                   className="photo"
                   // onClick={(event) => {
                   //   event.stopPropagation();
                   //   console.log("coords onClick");
                   // }}
+                > */}
+                {/* <MdOutlinePhoto size={15} color="white" title="New" /> */}
+                <Button
+                  component="label"
+                  className="photo"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  startIcon={
+                    <MdOutlinePhoto size={15} color="white" title="New" />
+                  }
                 >
-                  <MdOutlinePhoto size={15} color="white" title="New" />
-                  <Button
-                    component="label"
-                    role={undefined}
-                    variant="contained"
-                    tabIndex={-1}
-                    startIcon={
-                      <MdOutlinePhoto size={15} color="white" title="New" />
-                    }
-                  >
-                    <VisuallyHiddenInput
-                      type="file"
-                      onChange={(event) => console.log(event.target.files)}
-                    />
-                  </Button>
-                </div>
+                  <VisuallyHiddenInput
+                    type="file"
+                    onChange={(event) => console.log(event.target.files)}
+                  />
+                </Button>
+                {/* </div> */}
               </div>
             </YMapMarker>
             // title="Hello World!"
