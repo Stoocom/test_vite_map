@@ -2,7 +2,7 @@
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
   YMapComponentsProvider,
@@ -24,7 +24,10 @@ import {
   //   YMapMarker,
   //   YMapClusterer,
 } from "ymap3-components";
-import { getIsOpenAddMarker } from "../../services/store/slices/markersSlice";
+import {
+  getMarkers,
+  openAddMarkerForm,
+} from "../../services/store/slices/markersSlice";
 import { MdAddLocationAlt } from "react-icons/md";
 import "./Map.css";
 
@@ -36,8 +39,8 @@ function Map() {
     zoom: 10,
   });
 
-  const { isOpenAddMarker } = useSelector(getIsOpenAddMarker);
-  console.log("isOpenAddMarker", isOpenAddMarker);
+  const { isOpenAddMarker } = useSelector(getMarkers);
+  const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
   //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
   //     37.95, 55.65,
@@ -69,7 +72,8 @@ function Map() {
                   className="add_point_marker"
                   onClick={(event) => {
                     event.stopPropagation();
-                    console.log("onClick");
+                    dispatch(openAddMarkerForm(true));
+                    // console.log("onClick");
                   }}
                 >
                   <MdAddLocationAlt size={70} color="#ff3333" title="New" />

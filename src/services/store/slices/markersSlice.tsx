@@ -4,17 +4,21 @@ export const markersSlice = createSlice({
   name: "markersSlice",
   initialState: {
     isOpenAddMarker: false,
+    isOpenAddMarkerForm: false,
   },
   reducers: {
     toggleOpenAddMarker: (state) => {
       state.isOpenAddMarker = !state.isOpenAddMarker;
     },
+    openAddMarkerForm: (state, data) => {
+      state.isOpenAddMarkerForm = data.payload;
+    },
   },
 });
 
-export const { toggleOpenAddMarker } = markersSlice.actions;
+export const { toggleOpenAddMarker, openAddMarkerForm } = markersSlice.actions;
 
-export const getIsOpenAddMarker = (state: any) => {
+export const getMarkers = (state: any) => {
   return state.markers;
 };
 

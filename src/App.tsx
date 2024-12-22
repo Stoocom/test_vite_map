@@ -2,7 +2,7 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getIsOpenAddMarker,
+  getMarkers,
   toggleOpenAddMarker,
 } from "./services/store/slices/markersSlice";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
@@ -26,7 +26,7 @@ import Map from "./components/Map/Map";
 
 function App() {
   const dispatch = useDispatch();
-  const { isOpenAddMarker } = useSelector(getIsOpenAddMarker);
+  const { isOpenAddMarker, isOpenAddMarkerForm } = useSelector(getMarkers);
   const { isOpenLoginForm, profile } = useSelector(getProfile);
   console.log("profile", profile.login);
   useEffect(() => {
@@ -108,6 +108,11 @@ function App() {
       </div>
       <Map />
       {isOpenLoginForm && (
+        <ModalWrapper>
+          <Form />
+        </ModalWrapper>
+      )}
+      {isOpenAddMarkerForm && (
         <ModalWrapper>
           <Form />
         </ModalWrapper>
