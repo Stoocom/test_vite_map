@@ -119,7 +119,7 @@ function Map() {
                   // }}
                 > */}
                 <form className="photo">
-                  <button onClick={handleButtonClick}>
+                  <button className="upload" onClick={handleButtonClick}>
                     <MdOutlinePhoto size={15} color="white" title="New" />
                   </button>
                   <input

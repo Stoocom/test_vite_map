@@ -48,6 +48,14 @@
   transform: scale(1);
 }
 
+.upload {
+  background: initial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 .add_point .comment:hover, .add_point .photo:hover {
   animation: scale_move_bigger 0.5s ease forwards;
 }
