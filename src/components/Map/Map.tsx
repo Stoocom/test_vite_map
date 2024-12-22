@@ -1,7 +1,7 @@
 // import React from "react";
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -56,7 +56,7 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
-
+  const fileInputRef = useRef(null);
   const { isOpenAddMarker } = useSelector(getMarkers);
   const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
@@ -112,7 +112,7 @@ function Map() {
                   //   console.log("coords onClick");
                   // }}
                 >
-                  {/* <MdOutlinePhoto size={15} color="white" title="New" /> */}
+                  <MdOutlinePhoto size={15} color="white" title="New" />
                   <Button
                     component="label"
                     role={undefined}
@@ -129,6 +129,13 @@ function Map() {
                     />
                   </Button>
                 </div>
+                <input
+                  onChange={() => console.log("click!")}
+                  multiple={false}
+                  ref={fileInputRef}
+                  type="file"
+                  hidden
+                />
               </div>
             </YMapMarker>
             // title="Hello World!"
