@@ -29,6 +29,7 @@ import {
   openAddMarkerForm,
 } from "../../services/store/slices/markersSlice";
 import { MdAddLocationAlt } from "react-icons/md";
+import { LuSquareDashedMousePointer } from "react-icons/lu";
 import "./Map.css";
 
 // import { features } from "./helpers";
@@ -69,7 +70,7 @@ function Map() {
             <YMapMarker coordinates={addLocation.center}>
               <div className="add_point">
                 <div
-                  className="add_point_marker"
+                  className="marker"
                   onClick={(event) => {
                     event.stopPropagation();
                     dispatch(openAddMarkerForm(true));
@@ -77,6 +78,19 @@ function Map() {
                   }}
                 >
                   <MdAddLocationAlt size={70} color="#ff3333" title="New" />
+                </div>
+                <div
+                  className="coords"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    console.log("coords onClick");
+                  }}
+                >
+                  <LuSquareDashedMousePointer
+                    size={30}
+                    color="#ff3333"
+                    title="New"
+                  />
                 </div>
               </div>
             </YMapMarker>
