@@ -26,6 +26,7 @@ import {
 } from "ymap3-components";
 import { getIsOpenAddMarker } from "../../services/store/slices/markersSlice";
 import { MdAddLocationAlt } from "react-icons/md";
+import "./Map.scss";
 
 // import { features } from "./helpers";
 
@@ -63,17 +64,10 @@ function Map() {
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
             <YMapMarker coordinates={addLocation.center}>
-              <div style={{ position: "relative", width: 1, height: 1 }}>
+              <div className="add_point">
                 <div
-                  style={{
-                    position: "absolute",
-                    width: 60,
-                    height: 80,
-                    top: -80,
-                    left: -30,
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  className="add_point_marker"
+                  onClick={() => console.log("onClick")}
                 >
                   <MdAddLocationAlt size={80} color="#ff3333" title="New" />
                 </div>
