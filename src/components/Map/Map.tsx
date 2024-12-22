@@ -87,7 +87,7 @@ function Map() {
                   }}
                 >
                   <LuSquareDashedMousePointer
-                    size={30}
+                    size={20}
                     color="#ff3333"
                     title="New"
                   />
