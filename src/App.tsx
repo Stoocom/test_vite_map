@@ -1,6 +1,5 @@
 // import { useEffect } from "react";
 import "./App.css";
-import Map from "./components/Map";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getIsOpenAddMarker,
@@ -19,6 +18,7 @@ import {
 } from "./services/store/slices/profileSlice";
 import { useEffect } from "react";
 import { sendFile } from "./services/yandexDisk/api";
+import Map from "./components/Map";
 
 // const info_url = "https://cloud-api.yandex.net/v1/disk/";
 // const public_resources =
