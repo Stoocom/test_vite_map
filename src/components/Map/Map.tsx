@@ -35,21 +35,8 @@ import { MdLocationOn } from "react-icons/md";
 import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import "./Map.css";
-import { Button, styled } from "@mui/material";
 
 // import { features } from "./helpers";
-
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 
 function Map() {
   const [addLocation, setAddLocation] = useState<YMapLocation>({
@@ -105,30 +92,15 @@ function Map() {
                 >
                   <BsFeather size={15} color="white" title="New" />
                 </div>
-                {/* <div
+                <div
                   className="photo"
-                  // onClick={(event) => {
-                  //   event.stopPropagation();
-                  //   console.log("coords onClick");
-                  // }}
-                > */}
-                {/* <MdOutlinePhoto size={15} color="white" title="New" /> */}
-                <Button
-                  component="label"
-                  className="photo"
-                  role={undefined}
-                  variant="contained"
-                  tabIndex={-1}
-                  startIcon={
-                    <MdOutlinePhoto size={15} color="white" title="New" />
-                  }
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    console.log("coords onClick");
+                  }}
                 >
-                  <VisuallyHiddenInput
-                    type="file"
-                    onChange={(event) => console.log(event.target.files)}
-                  />
-                </Button>
-                {/* </div> */}
+                  <MdOutlinePhoto size={15} color="white" title="New" />
+                </div>
               </div>
             </YMapMarker>
             // title="Hello World!"
