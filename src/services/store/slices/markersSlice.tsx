@@ -18,7 +18,8 @@ export const markersSlice = createSlice({
       state.isOpenAddMarkerForm = data.payload;
     },
     changeZoomCurrentLocation: (state, data) => {
-      state.currentLocation.zoom = data.payload;
+      console.log("changeZoomCurrentLocation data", data);
+      state.currentLocation = { ...state.currentLocation, zoom: data.payload };
     },
   },
 });
