@@ -57,7 +57,7 @@ function Map() {
     console.log("mapInAction", mapInAction);
     setAddLocation({
       center: location.center,
-      zoom: 19,
+      zoom: 17,
     });
     // setDefaultCoordinates();
   };
