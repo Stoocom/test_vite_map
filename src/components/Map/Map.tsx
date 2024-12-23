@@ -1,7 +1,7 @@
 // import React from "react";
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -57,7 +57,7 @@ function Map() {
     console.log("mapInAction", mapInAction);
     setAddLocation({
       center: location.center,
-      zoom: location.zoom,
+      zoom: 19,
     });
     // setDefaultCoordinates();
   };
@@ -80,6 +80,8 @@ function Map() {
     // use the file
     console.log(file.name);
   }
+
+  useEffect(() => {}, []);
 
   return (
     <div className="container">
