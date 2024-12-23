@@ -5,6 +5,10 @@ export const markersSlice = createSlice({
   initialState: {
     isOpenAddMarker: false,
     isOpenAddMarkerForm: false,
+    currentLocation: {
+      center: [37.95, 55.65],
+      zoom: 10,
+    },
   },
   reducers: {
     toggleOpenAddMarker: (state) => {

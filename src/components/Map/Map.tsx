@@ -39,12 +39,10 @@ import "./Map.css";
 // import { features } from "./helpers";
 
 function Map() {
-  const [addLocation, setAddLocation] = useState<YMapLocation>({
-    center: [37.95, 55.65],
-    zoom: 10,
-  });
+  const { isOpenAddMarker, currentLocation } = useSelector(getMarkers);
+  const [addLocation, setAddLocation] = useState<YMapLocation>(currentLocation);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { isOpenAddMarker } = useSelector(getMarkers);
+
   const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
   //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
