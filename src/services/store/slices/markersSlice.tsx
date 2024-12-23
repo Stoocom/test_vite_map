@@ -17,10 +17,17 @@ export const markersSlice = createSlice({
     openAddMarkerForm: (state, data) => {
       state.isOpenAddMarkerForm = data.payload;
     },
+    changeZoomCurrentLocation: (state, data) => {
+      state.currentLocation.zoom = data.payload;
+    },
   },
 });
 
-export const { toggleOpenAddMarker, openAddMarkerForm } = markersSlice.actions;
+export const {
+  toggleOpenAddMarker,
+  openAddMarkerForm,
+  changeZoomCurrentLocation,
+} = markersSlice.actions;
 
 export const getMarkers = (state: any) => {
   return state.markers;

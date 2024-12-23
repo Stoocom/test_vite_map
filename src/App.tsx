@@ -2,6 +2,7 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changeZoomCurrentLocation,
   getMarkers,
   openAddMarkerForm,
   toggleOpenAddMarker,
@@ -27,7 +28,7 @@ import Map from "./components/Map/Map";
 
 function App() {
   const dispatch = useDispatch();
-  const { isOpenAddMarker, isOpenAddMarkerForm } = useSelector(getMarkers);
+  const { isOpenAddMarker } = useSelector(getMarkers);
   const { isOpenLoginForm, profile } = useSelector(getProfile);
   console.log("profile", profile.login);
   useEffect(() => {
@@ -89,7 +90,10 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
         }}
-        onClick={() => dispatch(toggleOpenAddMarker())}
+        onClick={() => {
+          dispatch(toggleOpenAddMarker());
+          dispatch(changeZoomCurrentLocation(19));
+        }}
       >
         <MdOutlineAddLocationAlt size={36} color="white" />
         {/* <svg
@@ -113,11 +117,11 @@ function App() {
           <Form />
         </ModalWrapper>
       )}
-      {isOpenAddMarkerForm && (
+      {/* {isOpenAddMarkerForm && (
         <ModalWrapper close={() => dispatch(openAddMarkerForm(false))}>
           <Form />
         </ModalWrapper>
-      )}
+      )} */}
       <ToastContainer
         position="bottom-left"
         autoClose={2000}
