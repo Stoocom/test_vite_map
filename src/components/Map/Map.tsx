@@ -43,6 +43,9 @@ function Map() {
   const [addLocation, setAddLocation] = useState<YMapLocation>(currentLocation);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  console.log("currentLocation", currentLocation);
+  console.log("addLocation", addLocation);
+
   const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
   //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
