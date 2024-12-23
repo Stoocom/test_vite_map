@@ -81,7 +81,14 @@ function Map() {
     console.log(file.name);
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (currentLocation.zoom !== addLocation.zoom) {
+      setAddLocation({
+        ...addLocation,
+        zoom: currentLocation.zoom,
+      });
+    }
+  }, [currentLocation]);
 
   return (
     <div className="container">
