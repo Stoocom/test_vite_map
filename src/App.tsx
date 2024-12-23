@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   changeZoomCurrentLocation,
   getMarkers,
-  openAddMarkerForm,
   toggleOpenAddMarker,
 } from "./services/store/slices/markersSlice";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
