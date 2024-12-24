@@ -1,7 +1,7 @@
 // import React from "react";
 import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
