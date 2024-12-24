@@ -39,11 +39,13 @@ import "./Map.css";
 // import { features } from "./helpers";
 
 function Map() {
-  const { isOpenAddMarker, currentLocation } = useSelector(getMarkers);
-  const [addLocation, setAddLocation] = useState<YMapLocation>(currentLocation);
+  const { isOpenAddMarker } = useSelector(getMarkers);
+  const [addLocation, setAddLocation] = useState<YMapLocation>({
+    center: [37.95, 55.65],
+    zoom: 10,
+  });
   const inputRef = useRef<HTMLInputElement>(null);
 
-  console.log("currentLocation", currentLocation);
   console.log("addLocation", addLocation);
 
   const dispatch = useDispatch();
@@ -81,14 +83,14 @@ function Map() {
     console.log(file.name);
   }
 
-  useEffect(() => {
-    if (currentLocation.zoom !== addLocation.zoom) {
-      setAddLocation({
-        ...addLocation,
-        zoom: currentLocation.zoom,
-      });
-    }
-  }, [currentLocation]);
+  // useEffect(() => {
+  //   if (currentLocation.zoom !== addLocation.zoom) {
+  //     setAddLocation({
+  //       ...addLocation,
+  //       zoom: currentLocation.zoom,
+  //     });
+  //   }
+  // }, [currentLocation]);
 
   return (
     <div className="container">

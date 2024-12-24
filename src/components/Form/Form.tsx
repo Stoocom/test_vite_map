@@ -89,6 +89,10 @@ const Form: FC = () => {
       <Typography variant="h4" gutterBottom>
         {isLogin ? "Registration" : "Login"}
       </Typography>
+      <img
+        src="https://downloader.disk.yandex.ru/preview/9c69850c104555a490f04fc6766197eca06955bee018aa105eeb68b1c0c9e475/inf/P1Uu3IBvn2J_059WhlC9XydbkJ2sC_KEk2e_VtbYAOfuuRRO_ACnqYduWLfxvvz5VgHzs7xBXDvk4Qqe7B86gQ%3D%3D?uid=1022693374&filename=%D0%93%D0%BE%D1%80%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1022693374&tknv=v2&size=S&crop=0"
+        alt="no"
+      />
       <TextField
         label="Email"
         name="email"
