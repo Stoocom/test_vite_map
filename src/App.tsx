@@ -18,7 +18,7 @@ import {
   toggleOpenLoginForm,
 } from "./services/store/slices/profileSlice";
 import { useEffect } from "react";
-import { sendFile } from "./services/yandexDisk/api";
+// import { getLastPublicFiles } from "./services/yandexDisk/api";
 import Map from "./components/Map/Map";
 
 // const info_url = "https://cloud-api.yandex.net/v1/disk/";
@@ -32,7 +32,7 @@ function App() {
   console.log("profile", profile.login);
   useEffect(() => {
     console.log("useEffect");
-    sendFile();
+    // getLastPublicFiles();
   }, []);
   return (
     <>
