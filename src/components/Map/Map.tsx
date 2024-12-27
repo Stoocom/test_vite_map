@@ -35,6 +35,7 @@ import { MdLocationOn } from "react-icons/md";
 import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import "./Map.css";
+import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
 
@@ -72,7 +73,7 @@ function Map() {
     inputRef.current.click();
   }
 
-  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     console.log("handleFileUpload");
     if (!files) return;
@@ -81,6 +82,8 @@ function Map() {
 
     // use the file
     console.log(file.name);
+
+    const data = await UploadService.upload(file);
   }
 
   // useEffect(() => {

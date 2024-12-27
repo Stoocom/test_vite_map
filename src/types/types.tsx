@@ -8,3 +8,7 @@ export interface IResponceUserData {
   email: string;
   password: string;
 }
+
+export interface IUploadData {
+  file: string;
+}

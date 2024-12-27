@@ -1,5 +1,5 @@
 import { IUserData } from "../../types/types";
-import { axiosInstance } from "./axios.instance";
+import { axiosInstance } from "../axios/axios.instance";
 
 export const AuthService = {
   async registration(userData: IUserData): Promise<any> {
