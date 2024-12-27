@@ -58,10 +58,10 @@ function Map() {
     console.log("location", location);
     console.log("mapInAction", mapInAction);
     console.log("mapInAction", mapInAction);
-    setAddLocation({
-      center: location.center,
-      zoom: 17,
-    });
+    // setAddLocation({
+    //   center: location.center,
+    //   zoom: 17,
+    // });
     // setDefaultCoordinates();
   };
 
