@@ -92,7 +92,7 @@ const Form: FC = () => {
       </Typography>
       <ImageListItem key={"123445"}>
         <img
-          src="https://downloader.disk.yandex.ru/preview/4f80fed2873463ff2b31162cda7ba2d9e19fab3ed6e73faa88cfdd449b8391b5/inf/gJ9KiimGoYbGCe2IrDWcVGycE3C0fjH29HfwRtDDKVygSgSgsryLElCdDXXAJj1BBccTjprd_uY3WWhDvvyBVA%3D%3D?uid=1022693374&filename=%D0%97%D0%B8%D0%BC%D0%B0.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1022693374&tknv=v2&size=XXXS&crop=0"
+          src="https://drive.google.com/thumbnail?id=1JZJ8DiiwQtma5PPWFK-Em0-bVJVrkSuY"
           alt="no"
         />
       </ImageListItem>
