@@ -84,6 +84,7 @@ function Map() {
     console.log(file.name);
 
     const data = await UploadService.upload(file);
+    console.log("data", data);
   }
 
   // useEffect(() => {
