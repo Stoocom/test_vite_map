@@ -3,6 +3,7 @@ import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
 import "./Form.css";
 import {
+  Box,
   Button,
   ImageListItem,
   Link,
@@ -91,9 +92,16 @@ const Form: FC = () => {
         {isLogin ? "Registration" : "Login"}
       </Typography>
       <ImageListItem key={"123445"}>
-        <img
+        <Box
+          component="img"
+          sx={{
+            height: 233,
+            width: 350,
+            maxHeight: { xs: 233, md: 167 },
+            maxWidth: { xs: 350, md: 250 },
+          }}
+          alt="The"
           src="https://drive.google.com/thumbnail?id=1JZJ8DiiwQtma5PPWFK-Em0-bVJVrkSuY"
-          alt="no"
         />
       </ImageListItem>
       <TextField
