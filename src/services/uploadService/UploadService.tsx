@@ -8,6 +8,8 @@ export const UploadService = {
     const { data } = await axiosInstance.post("user/upload", formData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
       },
     });
     return data;
