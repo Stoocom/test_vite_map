@@ -7,7 +7,7 @@ export const UploadService = {
     formData.append("file", file);
     const { data } = await axiosInstance.post("user/upload", formData, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
     });
     return data;
