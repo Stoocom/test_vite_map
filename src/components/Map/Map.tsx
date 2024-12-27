@@ -41,7 +41,7 @@ import { UploadService } from "../../services/uploadService/UploadService";
 
 function Map() {
   const { isOpenAddMarker } = useSelector(getMarkers);
-  const [addLocation, setAddLocation] = useState<YMapLocation>({
+  const [addLocation] = useState<YMapLocation>({
     center: [37.95, 55.65],
     zoom: 10,
   });
