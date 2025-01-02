@@ -45,9 +45,11 @@ function Map() {
     center: [37.95, 55.65],
     zoom: 10,
   });
+  const [choosedFile, setChoosedFile] = useState<File | undefined>(undefined);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  console.log("addLocation", addLocation);
+  console.log("choosedFile ", choosedFile);
+  console.log("addLocation ", addLocation);
 
   const dispatch = useDispatch();
   //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
@@ -70,7 +72,7 @@ function Map() {
     console.log("handleButtonClick");
     if (!inputRef || !inputRef.current) return;
 
-    // inputRef.current.click();
+    inputRef.current.click();
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -81,10 +83,11 @@ function Map() {
     const file = files[0];
 
     // use the file
-    console.log(file.name);
+    console.log("file ", file);
+    setChoosedFile(file);
 
-    const data = await UploadService.upload(file);
-    console.log("data", data);
+    // const data = await UploadService.upload(file);
+    // console.log("data", data);
   }
 
   // useEffect(() => {
