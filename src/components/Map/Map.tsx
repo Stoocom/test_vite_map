@@ -41,7 +41,7 @@ import { UploadService } from "../../services/uploadService/UploadService";
 
 function Map() {
   const { isOpenAddMarker } = useSelector(getMarkers);
-  const [addLocation] = useState<YMapLocation>({
+  const [addLocation, setAddLocation] = useState<YMapLocation>({
     center: [37.95, 55.65],
     zoom: 10,
   });
@@ -58,10 +58,10 @@ function Map() {
     console.log("location", location);
     console.log("mapInAction", mapInAction);
     console.log("mapInAction", mapInAction);
-    // setAddLocation({
-    //   center: location.center,
-    //   zoom: 17,
-    // });
+    setAddLocation({
+      center: location.center,
+      zoom: location.zoom,
+    });
     // setDefaultCoordinates();
   };
 
@@ -70,7 +70,7 @@ function Map() {
     console.log("handleButtonClick");
     if (!inputRef || !inputRef.current) return;
 
-    inputRef.current.click();
+    // inputRef.current.click();
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {

@@ -20,6 +20,7 @@ import {
 import { useEffect } from "react";
 // import { getLastPublicFiles } from "./services/yandexDisk/api";
 import Map from "./components/Map/Map";
+import { MdOutlineAddLocationAlt } from "react-icons/md";
 
 // const info_url = "https://cloud-api.yandex.net/v1/disk/";
 // const public_resources =
@@ -94,11 +95,7 @@ function App() {
           dispatch(changeZoomCurrentLocation(19));
         }}
       >
-        <img
-          src="https://downloader.disk.yandex.ru/preview/4f80fed2873463ff2b31162cda7ba2d9e19fab3ed6e73faa88cfdd449b8391b5/inf/gJ9KiimGoYbGCe2IrDWcVGycE3C0fjH29HfwRtDDKVygSgSgsryLElCdDXXAJj1BBccTjprd_uY3WWhDvvyBVA%3D%3D?uid=1022693374&filename=%D0%97%D0%B8%D0%BC%D0%B0.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1022693374&tknv=v2&size=XXXS&crop=0"
-          alt="no"
-        />
-        {/* <MdOutlineAddLocationAlt size={36} color="white" /> */}
+        <MdOutlineAddLocationAlt size={36} color="white" />
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
