@@ -35,7 +35,7 @@ import { MdLocationOn } from "react-icons/md";
 import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import "./Map.css";
-import { UploadService } from "../../services/uploadService/UploadService";
+// import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
 
