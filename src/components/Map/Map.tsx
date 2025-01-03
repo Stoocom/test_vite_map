@@ -121,7 +121,6 @@ function Map() {
                   className="marker"
                   onClick={(event) => {
                     event.stopPropagation();
-                    dispatch(openAddCommentForm(true));
                     // console.log("onClick");
                   }}
                 >
@@ -132,6 +131,7 @@ function Map() {
                   onClick={(event) => {
                     event.stopPropagation();
                     console.log("coords onClick");
+                    dispatch(openAddCommentForm(true));
                   }}
                 >
                   <BsFeather size={15} color="white" title="New" />

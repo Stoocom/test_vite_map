@@ -15,6 +15,7 @@ export const markersSlice = createSlice({
       state.isOpenAddMarker = !state.isOpenAddMarker;
     },
     openAddCommentForm: (state, data) => {
+      console.log("openAddCommentForm", data.payload);
       state.isOpenAddCommentForm = data.payload;
     },
     changeZoomCurrentLocation: (state, data) => {
