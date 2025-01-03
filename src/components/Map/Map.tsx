@@ -151,16 +151,24 @@ function Map() {
                       );
                       return;
                     }
-                    const result = await uploadFile(choosedFile);
-                    toast.success(result.status);
-                    console.log("result ", result.status);
-                    if (result.status === 200 || result.status === 201) {
-                      toast.success(
-                        "Изображение успешно отправлено, идет проверка"
-                      );
-                    } else {
-                      toast.error("Изображение не сохранено");
-                    }
+                    uploadFile(choosedFile)
+                      .then((res) => {
+                        toast.success(res.data);
+                        toast.success(res.status);
+                      })
+                      .catch((error) => {
+                        toast.success(error);
+                        toast.success(error.status);
+                      });
+                    // toast.success(result.status);
+                    // console.log("result ", result.status);
+                    // if (result.status === 200 || result.status === 201) {
+                    //   toast.success(
+                    //     "Изображение успешно отправлено, идет проверка"
+                    //   );
+                    // } else {
+                    //   toast.error("Изображение не сохранено");
+                    // }
                   }}
                 >
                   <IoCheckmarkOutline size={25} color="white" title="New" />
