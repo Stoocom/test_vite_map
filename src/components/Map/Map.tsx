@@ -136,6 +136,7 @@ function Map() {
                 </div>
                 <div
                   className="send"
+                  style={{ background: choosedFile ? "#60d66c" : "lightgray" }}
                   onClick={(event) => {
                     event.stopPropagation();
                     console.log("coords onClick");
