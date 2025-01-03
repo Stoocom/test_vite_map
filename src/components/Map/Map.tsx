@@ -34,6 +34,7 @@ import { MdLocationOn } from "react-icons/md";
 // import { LuSquareDashedMousePointer } from "react-icons/lu";
 import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
+import { IoMdCheckmark } from "react-icons/io";
 import "./Map.css";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
@@ -132,6 +133,15 @@ function Map() {
                   }}
                 >
                   <BsFeather size={15} color="white" title="New" />
+                </div>
+                <div
+                  className="send"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    console.log("coords onClick");
+                  }}
+                >
+                  <IoMdCheckmark size={70} color="white" title="New" />
                 </div>
                 {/* <div
                   className="photo"
