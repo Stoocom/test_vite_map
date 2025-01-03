@@ -87,6 +87,7 @@ function Map() {
 
     // use the file
     console.log("file ", file);
+    toast.success(file.name);
     setChoosedFile(file);
 
     // const data = await UploadService.upload(file);
