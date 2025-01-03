@@ -2,34 +2,13 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
 import "./Form.css";
-import {
-  Box,
-  Button,
-  ImageListItem,
-  Link,
-  Stack,
-  // styled,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Link, Stack, TextField, Typography } from "@mui/material";
 import { setValueToLocalStorage } from "../../services/localStorage/api";
 import {
   toggleOpenLoginForm,
   setProfile,
 } from "../../services/store/slices/profileSlice";
 import { useDispatch } from "react-redux";
-
-// const VisuallyHiddenInput = styled("input")({
-//   clip: "rect(0 0 0 0)",
-//   clipPath: "inset(50%)",
-//   height: 1,
-//   overflow: "hidden",
-//   position: "absolute",
-//   bottom: 0,
-//   left: 0,
-//   whiteSpace: "nowrap",
-//   width: 1,
-// });
 
 const Form: FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);

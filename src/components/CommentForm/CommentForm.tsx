@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { ChangeEvent, FC, FormEvent } from "react";
 import { toast } from "react-toastify";
 import "./CommentForm.css";
 import {
@@ -21,8 +21,6 @@ import {
 } from "../../services/store/slices/markersSlice";
 
 const CommentForm: FC = () => {
-  // const [comment, setComment] = useState<string>("");
-  // const [rate, setRate] = useState<string>("2");
   const { marketRating, markerComment } = useSelector(getMarkers);
   console.log("marketRating", marketRating);
   console.log("markerComment", markerComment);
