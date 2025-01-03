@@ -141,6 +141,8 @@ function Map() {
                   className="send"
                   style={{ background: choosedFile ? "#60d66c" : "lightgray" }}
                   onClick={async (event) => {
+                    toast.success("send onClick");
+                    toast.success(choosedFile?.name);
                     event.stopPropagation();
                     console.log("sending");
                     if (!choosedFile) {
