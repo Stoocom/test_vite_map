@@ -152,7 +152,7 @@ function Map() {
                     console.log("data", data);
                   }}
                 >
-                  <IoCheckmarkOutline size={30} color="white" title="New" />
+                  <IoCheckmarkOutline size={15} color="white" title="New" />
                 </div>
                 {/* <div
                   className="photo"
