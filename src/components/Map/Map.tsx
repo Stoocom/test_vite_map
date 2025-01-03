@@ -141,7 +141,7 @@ function Map() {
                     console.log("coords onClick");
                   }}
                 >
-                  <IoCheckmarkOutline size={50} color="white" title="New" />
+                  <IoCheckmarkOutline size={30} color="white" title="New" />
                 </div>
                 {/* <div
                   className="photo"
