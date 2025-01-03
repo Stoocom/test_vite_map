@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import AuthService from "../../services/authService";
 import { toast } from "react-toastify";
-import "./Form.css";
+import "./CommentForm.css";
 import {
   Box,
   Button,
