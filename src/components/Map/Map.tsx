@@ -149,8 +149,8 @@ function Map() {
                       return;
                     }
                     const result = await UploadService.upload(choosedFile);
-                    console.log("result ", result);
-                    if (result.status === 200) {
+                    console.log("result ", result.status);
+                    if (result.status === 200 || result.status === 201) {
                       toast.success(
                         "Изображение успешно отправлено, идет проверка"
                       );
