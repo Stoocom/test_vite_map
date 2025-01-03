@@ -54,7 +54,7 @@
   width: 25px;
   height: 25px;
   top: -22px;
-  left: 8px;
+  left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@
   border: 0;
 }
 
-.add_point .comment:hover, .add_point .photo:hover {
+.add_point .comment:hover, .add_point .photo:hover, .add_point .send:hover {
   animation: scale_move_bigger 0.5s ease forwards;
 }
 

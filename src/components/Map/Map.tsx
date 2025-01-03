@@ -34,7 +34,7 @@ import { MdLocationOn } from "react-icons/md";
 // import { LuSquareDashedMousePointer } from "react-icons/lu";
 import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
-import { IoMdCheckmark } from "react-icons/io";
+import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
@@ -141,7 +141,7 @@ function Map() {
                     console.log("coords onClick");
                   }}
                 >
-                  <IoMdCheckmark size={70} color="white" title="New" />
+                  <IoCheckmarkOutline size={50} color="white" title="New" />
                 </div>
                 {/* <div
                   className="photo"
