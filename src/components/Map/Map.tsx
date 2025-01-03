@@ -36,6 +36,8 @@ import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
+import { UploadService } from "../../services/uploadService/UploadService";
+import { toast } from "react-toastify";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
@@ -137,9 +139,17 @@ function Map() {
                 <div
                   className="send"
                   style={{ background: choosedFile ? "#60d66c" : "lightgray" }}
-                  onClick={(event) => {
+                  onClick={async (event) => {
                     event.stopPropagation();
-                    console.log("coords onClick");
+                    console.log("sending");
+                    if (!choosedFile) {
+                      toast.error(
+                        "Не заполнен комментарий или не приложен файл"
+                      );
+                      return;
+                    }
+                    const data = await UploadService.upload(choosedFile);
+                    console.log("data", data);
                   }}
                 >
                   <IoCheckmarkOutline size={30} color="white" title="New" />
