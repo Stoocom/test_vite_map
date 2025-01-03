@@ -153,12 +153,10 @@ function Map() {
                     }
                     uploadFile(choosedFile)
                       .then((res) => {
-                        toast.success(res.data);
-                        toast.success(res.status);
+                        toast.success("1 res uploadFile");
                       })
                       .catch((error) => {
-                        toast.success(error);
-                        toast.success(error.status);
+                        toast.success("1 error uploadFile");
                       });
                     // toast.success(result.status);
                     // console.log("result ", result.status);
