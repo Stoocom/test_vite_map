@@ -9,18 +9,24 @@ export const markersSlice = createSlice({
       center: [37.95, 55.65],
       zoom: 10,
     },
+    markerComment: "",
+    marketRating: "2",
   },
   reducers: {
     toggleOpenAddMarker: (state) => {
       state.isOpenAddMarker = !state.isOpenAddMarker;
     },
     openAddCommentForm: (state, data) => {
-      console.log("openAddCommentForm", data.payload);
       state.isOpenAddCommentForm = data.payload;
     },
     changeZoomCurrentLocation: (state, data) => {
-      console.log("changeZoomCurrentLocation data", data);
       state.currentLocation = { ...state.currentLocation, zoom: data.payload };
+    },
+    changeMarkerComment: (state, data) => {
+      state.markerComment = data.payload.trim();
+    },
+    changeMarketRating: (state, data) => {
+      state.marketRating = data.payload;
     },
   },
 });
@@ -29,6 +35,8 @@ export const {
   toggleOpenAddMarker,
   openAddCommentForm,
   changeZoomCurrentLocation,
+  changeMarkerComment,
+  changeMarketRating,
 } = markersSlice.actions;
 
 export const getMarkers = (state: any) => {

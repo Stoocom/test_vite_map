@@ -60,7 +60,6 @@ const Form: FC = () => {
     } catch (error: any) {
       toast.error(error.response.data.errors.toString());
     }
-    event.preventDefault();
   };
 
   const logSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
@@ -91,7 +90,7 @@ const Form: FC = () => {
       <Typography variant="h4" gutterBottom>
         {isLogin ? "Registration" : "Login"}
       </Typography>
-      <ImageListItem key={"123445"}>
+      {/* <ImageListItem key={"123445"}>
         <Box
           component="img"
           sx={{
@@ -125,7 +124,7 @@ const Form: FC = () => {
           alt="The Ya"
           src="https://disk.yandex.ru/i/sMc5GEW3CG1nuA"
         />
-      </ImageListItem>
+      </ImageListItem> */}
       <TextField
         label="Email"
         name="email"
