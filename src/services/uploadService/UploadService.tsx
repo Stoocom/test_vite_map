@@ -24,23 +24,28 @@ export const uploadFile = (file: File) => {
   formData.append("file", file);
   formData.append("comment", "Строка тестовая_1");
   toast.success("uploadFile " + file.name);
-  const data = axiosInstance
-    .post("user/upload", formData, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        mode: "no-cors",
-      },
-    })
-    .then((res: any) => {
-      toast.success("2 res uploadFile");
-      toast.success(res);
-    })
-    .catch((error: any) => {
-      toast.success("2 error uploadFile");
-      toast.success(error);
-    });
+  try {
+    const data = axiosInstance
+      .post("user/upload", formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          mode: "no-cors",
+        },
+      })
+      .then((res: any) => {
+        toast.success("2 res uploadFile");
+        toast.success(res);
+      })
+      .catch((error: any) => {
+        toast.success("2 error uploadFile");
+        toast.success(error);
+      });
 
-  return data;
+    return data;
+  } catch (error: any) {
+    toast.success("try catch error");
+    toast.success(error);
+  }
 };
