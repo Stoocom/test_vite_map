@@ -36,7 +36,10 @@ import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
-import { UploadService } from "../../services/uploadService/UploadService";
+import {
+  uploadFile,
+  UploadService,
+} from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
@@ -149,7 +152,7 @@ function Map() {
                       );
                       return;
                     }
-                    const result = await UploadService.upload(choosedFile);
+                    const result = await uploadFile(choosedFile);
                     console.log("result ", result.status);
                     if (result.status === 200 || result.status === 201) {
                       toast.success(

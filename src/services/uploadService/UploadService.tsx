@@ -17,3 +17,18 @@ export const UploadService = {
     return data;
   },
 };
+
+export const uploadFile = async (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("comment", "Строка тестовая_1");
+  const data = await axiosInstance.post("user/upload", formData, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      mode: "no-cors",
+    },
+  });
+  return data;
+};
