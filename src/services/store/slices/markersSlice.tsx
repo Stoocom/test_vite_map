@@ -4,7 +4,7 @@ export const markersSlice = createSlice({
   name: "markersSlice",
   initialState: {
     isOpenAddMarker: false,
-    isOpenAddMarkerForm: false,
+    isOpenAddCommentForm: false,
     currentLocation: {
       center: [37.95, 55.65],
       zoom: 10,
@@ -14,8 +14,8 @@ export const markersSlice = createSlice({
     toggleOpenAddMarker: (state) => {
       state.isOpenAddMarker = !state.isOpenAddMarker;
     },
-    openAddMarkerForm: (state, data) => {
-      state.isOpenAddMarkerForm = data.payload;
+    openAddCommentForm: (state, data) => {
+      state.isOpenAddCommentForm = data.payload;
     },
     changeZoomCurrentLocation: (state, data) => {
       console.log("changeZoomCurrentLocation data", data);
@@ -26,7 +26,7 @@ export const markersSlice = createSlice({
 
 export const {
   toggleOpenAddMarker,
-  openAddMarkerForm,
+  openAddCommentForm,
   changeZoomCurrentLocation,
 } = markersSlice.actions;
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   changeZoomCurrentLocation,
   getMarkers,
+  openAddCommentForm,
   toggleOpenAddMarker,
 } from "./services/store/slices/markersSlice";
 // import { MdOutlineAddLocationAlt } from "react-icons/md";
@@ -21,6 +22,7 @@ import { useEffect } from "react";
 // import { getLastPublicFiles } from "./services/yandexDisk/api";
 import Map from "./components/Map/Map";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
+import CommentForm from "./components/CommentForm";
 
 // const info_url = "https://cloud-api.yandex.net/v1/disk/";
 // const public_resources =
@@ -28,7 +30,7 @@ import { MdOutlineAddLocationAlt } from "react-icons/md";
 
 function App() {
   const dispatch = useDispatch();
-  const { isOpenAddMarker } = useSelector(getMarkers);
+  const { isOpenAddMarker, isOpenAddCommentForm } = useSelector(getMarkers);
   const { isOpenLoginForm, profile } = useSelector(getProfile);
   console.log("profile", profile.login);
   useEffect(() => {
@@ -117,11 +119,11 @@ function App() {
           <Form />
         </ModalWrapper>
       )}
-      {/* {isOpenAddMarkerForm && (
-        <ModalWrapper close={() => dispatch(openAddMarkerForm(false))}>
-          <Form />
+      {isOpenAddCommentForm && (
+        <ModalWrapper close={() => dispatch(openAddCommentForm(false))}>
+          <CommentForm />
         </ModalWrapper>
-      )} */}
+      )}
       <ToastContainer
         position="bottom-left"
         autoClose={2000}

@@ -26,7 +26,7 @@ import {
 } from "ymap3-components";
 import {
   getMarkers,
-  openAddMarkerForm,
+  openAddCommentForm,
 } from "../../services/store/slices/markersSlice";
 // import { MdAddLocationAlt } from "react-icons/md";
 // import { SlLocationPin } from "react-icons/sl";
@@ -121,7 +121,7 @@ function Map() {
                   className="marker"
                   onClick={(event) => {
                     event.stopPropagation();
-                    dispatch(openAddMarkerForm(true));
+                    dispatch(openAddCommentForm(true));
                     // console.log("onClick");
                   }}
                 >
