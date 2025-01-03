@@ -140,7 +140,7 @@ function Map() {
                 <div
                   className="send"
                   style={{ background: choosedFile ? "#60d66c" : "lightgray" }}
-                  onClick={async (event) => {
+                  onClick={(event) => {
                     toast.success("send onClick");
                     toast.success(choosedFile?.name);
                     event.stopPropagation();
@@ -152,11 +152,13 @@ function Map() {
                       return;
                     }
                     uploadFile(choosedFile)
-                      .then((res) => {
+                      .then((res: any) => {
                         toast.success("1 res uploadFile");
+                        toast.success(res);
                       })
-                      .catch((error) => {
+                      .catch((error: any) => {
                         toast.success("1 error uploadFile");
+                        toast.success(error);
                       });
                     // toast.success(result.status);
                     // console.log("result ", result.status);

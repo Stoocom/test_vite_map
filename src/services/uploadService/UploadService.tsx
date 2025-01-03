@@ -33,11 +33,14 @@ export const uploadFile = (file: File) => {
         mode: "no-cors",
       },
     })
-    .then((res) => {
-      toast.success("2 inside uploadFile");
+    .then((res: any) => {
+      toast.success("2 res uploadFile");
+      toast.success(res);
     })
-    .catch((error) => {
-      toast.success("2 inside uploadFile");
+    .catch((error: any) => {
+      toast.success("2 error uploadFile");
+      toast.success(error);
     });
+
   return data;
 };
