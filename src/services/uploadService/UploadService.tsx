@@ -1,4 +1,5 @@
 // import { IUploadData } from "../../types/types";
+import { toast } from "react-toastify";
 import { axiosInstance } from "../axios/axios.instance";
 
 export const UploadService = {
@@ -22,6 +23,7 @@ export const uploadFile = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("comment", "Строка тестовая_1");
+  toast.success("uploadFile " + file.name);
   const data = await axiosInstance.post("user/upload", formData, {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
