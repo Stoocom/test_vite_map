@@ -36,10 +36,7 @@ import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
-import {
-  uploadFile,
-  UploadService,
-} from "../../services/uploadService/UploadService";
+import { uploadFile } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
