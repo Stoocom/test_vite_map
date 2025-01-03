@@ -150,6 +150,7 @@ function Map() {
                       return;
                     }
                     const result = await uploadFile(choosedFile);
+                    toast.success(result.status);
                     console.log("result ", result.status);
                     if (result.status === 200 || result.status === 201) {
                       toast.success(
