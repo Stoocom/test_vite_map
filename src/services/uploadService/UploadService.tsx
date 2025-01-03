@@ -6,7 +6,7 @@ export const UploadService = {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("comment", "Строка тестовая_1");
-    const { data } = await axiosInstance.post("user/upload", formData, {
+    const data = await axiosInstance.post("user/upload", formData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Access-Control-Allow-Origin": "*",

@@ -148,11 +148,17 @@ function Map() {
                       );
                       return;
                     }
-                    const data = await UploadService.upload(choosedFile);
-                    console.log("data", data);
+                    const result = await UploadService.upload(choosedFile);
+                    if (result.status === 200) {
+                      toast.success(
+                        "Изображение успешно отправлено, идет проверка"
+                      );
+                    } else {
+                      toast.error("Изображение не сохранено");
+                    }
                   }}
                 >
-                  <IoCheckmarkOutline size={15} color="white" title="New" />
+                  <IoCheckmarkOutline size={25} color="white" title="New" />
                 </div>
                 {/* <div
                   className="photo"
