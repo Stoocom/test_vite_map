@@ -36,7 +36,7 @@ import { BsFeather } from "react-icons/bs";
 import { MdOutlinePhoto } from "react-icons/md";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
-import { uploadFile } from "../../services/uploadService/UploadService";
+import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
@@ -140,9 +140,7 @@ function Map() {
                 <div
                   className="send"
                   style={{ background: choosedFile ? "#60d66c" : "lightgray" }}
-                  onClick={(event) => {
-                    toast.success("send onClick");
-                    toast.success(choosedFile?.name);
+                  onClick={async (event) => {
                     event.stopPropagation();
                     console.log("sending");
                     if (!choosedFile) {
@@ -151,16 +149,19 @@ function Map() {
                       );
                       return;
                     }
-                    uploadFile(choosedFile);
-                    // toast.success(result.status);
-                    // console.log("result ", result.status);
-                    // if (result.status === 200 || result.status === 201) {
-                    //   toast.success(
-                    //     "Изображение успешно отправлено, идет проверка"
-                    //   );
-                    // } else {
-                    //   toast.error("Изображение не сохранено");
-                    // }
+                    try {
+                      const result = await UploadService.upload(choosedFile);
+                      console.log("result ", result.status);
+                      if (result.status === 200 || result.status === 201) {
+                        toast.success(
+                          "Изображение успешно отправлено, идет проверка"
+                        );
+                      } else {
+                        toast.error("Изображение не сохранено");
+                      }
+                    } catch (error) {
+                      toast.error("Ошибка запроса");
+                    }
                   }}
                 >
                   <IoCheckmarkOutline size={25} color="white" title="New" />
