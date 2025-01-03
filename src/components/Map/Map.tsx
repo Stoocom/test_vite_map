@@ -151,15 +151,7 @@ function Map() {
                       );
                       return;
                     }
-                    uploadFile(choosedFile)
-                      .then((res: any) => {
-                        toast.success("1 res uploadFile");
-                        toast.success(res);
-                      })
-                      .catch((error: any) => {
-                        toast.success("1 error uploadFile");
-                        toast.success(error);
-                      });
+                    uploadFile(choosedFile);
                     // toast.success(result.status);
                     // console.log("result ", result.status);
                     // if (result.status === 200 || result.status === 201) {

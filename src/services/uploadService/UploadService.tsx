@@ -21,6 +21,7 @@ export const UploadService = {
 
 export const uploadFile = (file: File) => {
   const formData = new FormData();
+  if (!file) return;
   formData.append("file", file);
   formData.append("comment", "Строка тестовая_1");
   toast.success("uploadFile " + file.name);
