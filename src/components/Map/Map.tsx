@@ -43,7 +43,8 @@ import { toast } from "react-toastify";
 // import { features } from "./helpers";
 
 function Map() {
-  const { isOpenAddMarker } = useSelector(getMarkers);
+  const { isOpenAddMarker, markerComment, marketRating } =
+    useSelector(getMarkers);
   const [addLocation, setAddLocation] = useState<YMapLocation>({
     center: [37.95, 55.65],
     zoom: 10,
@@ -150,7 +151,12 @@ function Map() {
                       return;
                     }
                     try {
-                      const result = await UploadService.upload(choosedFile);
+                      const result = await UploadService.upload(
+                        choosedFile,
+                        markerComment,
+                        marketRating,
+                        addLocation.center
+                      );
                       console.log("result ", result.status);
                       if (result.status === 200 || result.status === 201) {
                         toast.success(

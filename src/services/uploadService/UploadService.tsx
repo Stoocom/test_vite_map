@@ -3,10 +3,17 @@ import { toast } from "react-toastify";
 import { axiosInstance } from "../axios/axios.instance";
 
 export const UploadService = {
-  async upload(file: File): Promise<any> {
+  async upload(
+    file: File,
+    comment: string,
+    rating: string,
+    coordinates: any
+  ): Promise<any> {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("comment", "Строка тестовая_1");
+    formData.append("comment", comment);
+    formData.append("rating", rating);
+    formData.append("coordinates", coordinates);
     const data = await axiosInstance.post("user/upload", formData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
