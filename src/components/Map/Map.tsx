@@ -38,6 +38,7 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 import "./Map.css";
 import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
+import { getProfile } from "../../services/store/slices/profileSlice";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
@@ -45,6 +46,7 @@ import { toast } from "react-toastify";
 function Map() {
   const { isOpenAddMarker, markerComment, marketRating } =
     useSelector(getMarkers);
+  const { profile } = useSelector(getProfile);
   const [addLocation, setAddLocation] = useState<YMapLocation>({
     center: [37.95, 55.65],
     zoom: 10,
@@ -155,7 +157,8 @@ function Map() {
                         choosedFile,
                         markerComment,
                         marketRating,
-                        addLocation.center
+                        addLocation.center,
+                        userId: profile.id
                       );
                       console.log("result ", result.status);
                       if (result.status === 200 || result.status === 201) {

@@ -7,14 +7,16 @@ export const UploadService = {
     file: File,
     comment: string,
     rating: string,
-    coordinates: any
+    coordinates: any,
+    userId: number
   ): Promise<any> {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("comment", comment);
     formData.append("rating", rating);
     formData.append("coordinates", coordinates);
-    const data = await axiosInstance.post("user/upload", formData, {
+    formData.append("userId", userId.toString());
+    const data = await axiosInstance.post("markers/upload", formData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Access-Control-Allow-Origin": "*",
