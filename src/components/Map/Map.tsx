@@ -158,7 +158,7 @@ function Map() {
                         markerComment,
                         marketRating,
                         addLocation.center,
-                        userId: profile.id
+                        profile.id
                       );
                       console.log("result ", result.status);
                       if (result.status === 200 || result.status === 201) {

@@ -16,6 +16,8 @@ export const UploadService = {
     formData.append("rating", rating);
     formData.append("coordinates", coordinates);
     formData.append("userId", userId.toString());
+    console.log("coordinates", coordinates);
+    console.log("userId", userId);
     const data = await axiosInstance.post("markers/upload", formData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
