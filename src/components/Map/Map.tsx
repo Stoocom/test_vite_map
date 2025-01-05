@@ -24,6 +24,7 @@ import {
   YMapMarker,
   YMapListener,
   YMapClusterer,
+  YMapCustomClusterer,
   //   YMapContainer,
   //   YMapControlButton,
   //   YMapHintContext,
@@ -283,7 +284,7 @@ function Map() {
             // subtitle="kind and bright"
             // color="blue"
           )}
-          <YMapClusterer
+          <YMapCustomClusterer
             marker={marker}
             cluster={cluster}
             method={gridSizedMethod}
