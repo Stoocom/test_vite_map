@@ -1,7 +1,12 @@
 // import React from "react";
-import { DomEvent, DomEventHandlerObject } from "@yandex/ymaps3-types";
+import {
+  DomEvent,
+  DomEventHandlerObject,
+  LngLat,
+  LngLatBounds,
+} from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -18,6 +23,7 @@ import {
   // YMapDefaultMarker,
   YMapMarker,
   YMapListener,
+  YMapClusterer,
   //   YMapContainer,
   //   YMapControlButton,
   //   YMapHintContext,
@@ -39,6 +45,7 @@ import "./Map.css";
 import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
+import { clusterByGrid } from "@yandex/ymaps3-types/packages/clusterer";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
@@ -96,6 +103,82 @@ function Map() {
     // const data = await UploadService.upload(file);
     // console.log("data", data);
   }
+
+  const marker = (feature: any) => (
+    <YMapMarker coordinates={feature.geometry.coordinates}>
+      <div className="add_point">
+        <div
+          className="marker"
+          onClick={(event) => {
+            event.stopPropagation();
+            // console.log("onClick");
+          }}
+        >
+          <MdLocationOn size={70} color="green" title="New" />
+        </div>
+      </div>
+    </YMapMarker>
+  );
+
+  // const onClusterClick = useCallback(
+  //   (features: any[]) => {
+  //     const bounds = getBounds(
+  //       features.map((feature: any) => feature.geometry.coordinates)
+  //     );
+  //     setAddLocation((prevLocation) => ({
+  //       ...prevLocation,
+  //       bounds,
+  //       ...COMMON_LOCATION_PARAMS,
+  //     }));
+  //   },
+  //   [location]
+  // );
+
+  const cluster = (coordinates: any, features: any[]) => (
+    <YMapMarker onClick={() => console.log(features)} coordinates={coordinates}>
+      <div className="circle">
+        <div className="circle-content">
+          <span className="circle-text">{features.length}</span>
+        </div>
+      </div>
+    </YMapMarker>
+  );
+
+  const gridSizedMethod = useMemo(() => clusterByGrid({ gridSize: 64 }), []);
+
+  const seed = (s: number) => () => {
+    s = Math.sin(s) * 10000;
+    return s - Math.floor(s);
+  };
+
+  const rnd = seed(10000);
+
+  const bounds: LngLatBounds = [
+    [82.8291, 55.054],
+    [82.8957, 55.1638],
+  ];
+
+  const getRandomPointCoordinates = (bounds: LngLatBounds): LngLat => [
+    bounds[0][0] + (bounds[1][0] - bounds[0][0]) * rnd(),
+    bounds[1][1] + (bounds[0][1] - bounds[1][1]) * rnd(),
+  ];
+
+  const getRandomPoints = (bounds: LngLatBounds): any[] => {
+    return Array.from({ length: 40 }, (_, index) => ({
+      type: "Feature",
+      id: index.toString(),
+      geometry: {
+        type: "Point",
+        coordinates: getRandomPointCoordinates(bounds),
+      },
+      properties: {
+        name: "marker",
+        description: "",
+      },
+    }));
+  };
+
+  const points = useMemo(() => getRandomPoints(bounds), []);
 
   // useEffect(() => {
   //   if (currentLocation.zoom !== addLocation.zoom) {
@@ -200,6 +283,12 @@ function Map() {
             // subtitle="kind and bright"
             // color="blue"
           )}
+          <YMapClusterer
+            marker={marker}
+            cluster={cluster}
+            method={gridSizedMethod}
+            features={points}
+          />
           <YMapControls position="bottom">
             <YMapZoomControl />
           </YMapControls>
