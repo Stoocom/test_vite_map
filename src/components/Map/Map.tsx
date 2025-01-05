@@ -6,7 +6,7 @@ import {
   // LngLatBounds,
 } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -47,10 +47,6 @@ import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
 import { points } from "./helper";
 
-// import { UploadService } from "../../services/uploadService/UploadService";
-
-// import { features } from "./helpers";
-
 function Map() {
   const { isOpenAddMarker, markerComment, marketRating } =
     useSelector(getMarkers);
@@ -66,10 +62,7 @@ function Map() {
   console.log("addLocation ", addLocation);
 
   const dispatch = useDispatch();
-  //   const [isOpenAddMarker, setIsOpenAddMarker] = useState<boolean>(false);
-  //   const [defaultCoordinates, setDefaultCoordinates] = useState<LngLat>([
-  //     37.95, 55.65,
-  //   ]);
+
   const updateHandler = ({ location, mapInAction }: any) => {
     console.log("location", location);
     console.log("mapInAction", mapInAction);
@@ -105,8 +98,7 @@ function Map() {
     // console.log("data", data);
   }
 
-  const marker = useCallback((feature: any) => {
-    console.log("marker", feature);
+  const marker = (feature: any) => {
     return (
       <YMapMarker coordinates={feature.geometry.coordinates}>
         <div className="add_point">
@@ -122,24 +114,9 @@ function Map() {
         </div>
       </YMapMarker>
     );
-  }, []);
+  };
 
-  // const onClusterClick = useCallback(
-  //   (features: any[]) => {
-  //     const bounds = getBounds(
-  //       features.map((feature: any) => feature.geometry.coordinates)
-  //     );
-  //     setAddLocation((prevLocation) => ({
-  //       ...prevLocation,
-  //       bounds,
-  //       ...COMMON_LOCATION_PARAMS,
-  //     }));
-  //   },
-  //   [location]
-  // );
-
-  const cluster = useCallback((coordinates: any, features: any[]) => {
-    console.log("cluster", coordinates, features);
+  const cluster = (coordinates: any, features: any[]) => {
     return (
       <YMapMarker
         onClick={() => console.log(features)}
@@ -152,50 +129,7 @@ function Map() {
         </div>
       </YMapMarker>
     );
-  }, []);
-
-  // const seed = (s: number) => () => {
-  //   s = Math.sin(s) * 10000;
-  //   return s - Math.floor(s);
-  // };
-
-  // const rnd = seed(10000);
-
-  // const bounds: LngLatBounds = [
-  //   [82.8291, 55.054],
-  //   [82.8957, 55.1638],
-  // ];
-
-  // const getRandomPointCoordinates = (bounds: LngLatBounds): LngLat => [
-  //   bounds[0][0] + (bounds[1][0] - bounds[0][0]) * rnd(),
-  //   bounds[1][1] + (bounds[0][1] - bounds[1][1]) * rnd(),
-  // ];
-
-  // const getRandomPoints = (bounds: LngLatBounds): any[] => {
-  //   return Array.from({ length: 40 }, (_, index) => ({
-  //     type: "Feature",
-  //     id: index.toString(),
-  //     geometry: {
-  //       type: "Point",
-  //       coordinates: getRandomPointCoordinates(bounds),
-  //     },
-  //     properties: {
-  //       name: "marker",
-  //       description: "",
-  //     },
-  //   }));
-  // };
-
-  // const points = useMemo(() => getRandomPoints(bounds), []);
-
-  // useEffect(() => {
-  //   if (currentLocation.zoom !== addLocation.zoom) {
-  //     setAddLocation({
-  //       ...addLocation,
-  //       zoom: currentLocation.zoom,
-  //     });
-  //   }
-  // }, [currentLocation]);
+  };
 
   return (
     <div className="container">
