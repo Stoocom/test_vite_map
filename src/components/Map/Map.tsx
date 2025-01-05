@@ -6,7 +6,7 @@ import {
   // LngLatBounds,
 } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -105,7 +105,7 @@ function Map() {
     // console.log("data", data);
   }
 
-  const marker = (feature: any) => {
+  const marker = useCallback((feature: any) => {
     console.log("marker", feature);
     return (
       <YMapMarker coordinates={feature.geometry.coordinates}>
@@ -122,7 +122,7 @@ function Map() {
         </div>
       </YMapMarker>
     );
-  };
+  }, []);
 
   // const onClusterClick = useCallback(
   //   (features: any[]) => {
@@ -138,7 +138,7 @@ function Map() {
   //   [location]
   // );
 
-  const cluster = (coordinates: any, features: any[]) => {
+  const cluster = useCallback((coordinates: any, features: any[]) => {
     console.log("cluster", coordinates, features);
     return (
       <YMapMarker
@@ -152,7 +152,7 @@ function Map() {
         </div>
       </YMapMarker>
     );
-  };
+  }, []);
 
   // const seed = (s: number) => () => {
   //   s = Math.sin(s) * 10000;
