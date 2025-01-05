@@ -2,8 +2,8 @@
 import {
   DomEvent,
   DomEventHandlerObject,
-  LngLat,
-  LngLatBounds,
+  // LngLat,
+  // LngLatBounds,
 } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
 import { useRef, useState } from "react";
