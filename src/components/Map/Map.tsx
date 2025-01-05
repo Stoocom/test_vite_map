@@ -23,7 +23,6 @@ import {
   // YMapDefaultMarker,
   YMapMarker,
   YMapListener,
-  YMapClusterer,
   YMapCustomClusterer,
   //   YMapContainer,
   //   YMapControlButton,
