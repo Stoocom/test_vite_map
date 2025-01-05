@@ -99,6 +99,7 @@ function Map() {
   }
 
   const marker = (feature: any) => {
+    console.log("marker ", feature);
     return (
       <YMapMarker coordinates={feature.geometry.coordinates}>
         <div className="add_point">
@@ -117,6 +118,7 @@ function Map() {
   };
 
   const cluster = (coordinates: any, features: any[]) => {
+    console.log("cluster ", coordinates);
     return (
       <YMapMarker
         onClick={() => console.log(features)}
