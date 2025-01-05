@@ -23,6 +23,7 @@ import {
   // YMapDefaultMarker,
   YMapMarker,
   YMapListener,
+  YMapClusterer,
   YMapCustomClusterer,
   //   YMapContainer,
   //   YMapControlButton,
@@ -198,6 +199,12 @@ function Map() {
           location={addLocation}
           behaviors={["drag", "pinchZoom", "mouseTilt"]}
         >
+          <YMapCustomClusterer
+            marker={marker}
+            cluster={cluster}
+            gridSize={64}
+            features={points}
+          />
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
@@ -282,12 +289,6 @@ function Map() {
             // subtitle="kind and bright"
             // color="blue"
           )}
-          <YMapCustomClusterer
-            marker={marker}
-            cluster={cluster}
-            gridSize={64}
-            features={points}
-          />
           <YMapControls position="bottom">
             <YMapZoomControl />
           </YMapControls>
