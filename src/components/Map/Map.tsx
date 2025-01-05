@@ -24,7 +24,6 @@ import {
   YMapMarker,
   YMapListener,
   YMapCustomClusterer,
-  YMapClusterer,
   //   YMapContainer,
   //   YMapControlButton,
   //   YMapHintContext,
@@ -146,37 +145,37 @@ function Map() {
     </YMapMarker>
   );
 
-  const seed = (s: number) => () => {
-    s = Math.sin(s) * 10000;
-    return s - Math.floor(s);
-  };
+  // const seed = (s: number) => () => {
+  //   s = Math.sin(s) * 10000;
+  //   return s - Math.floor(s);
+  // };
 
-  const rnd = seed(10000);
+  // const rnd = seed(10000);
 
-  const bounds: LngLatBounds = [
-    [82.8291, 55.054],
-    [82.8957, 55.1638],
-  ];
+  // const bounds: LngLatBounds = [
+  //   [82.8291, 55.054],
+  //   [82.8957, 55.1638],
+  // ];
 
-  const getRandomPointCoordinates = (bounds: LngLatBounds): LngLat => [
-    bounds[0][0] + (bounds[1][0] - bounds[0][0]) * rnd(),
-    bounds[1][1] + (bounds[0][1] - bounds[1][1]) * rnd(),
-  ];
+  // const getRandomPointCoordinates = (bounds: LngLatBounds): LngLat => [
+  //   bounds[0][0] + (bounds[1][0] - bounds[0][0]) * rnd(),
+  //   bounds[1][1] + (bounds[0][1] - bounds[1][1]) * rnd(),
+  // ];
 
-  const getRandomPoints = (bounds: LngLatBounds): any[] => {
-    return Array.from({ length: 40 }, (_, index) => ({
-      type: "Feature",
-      id: index.toString(),
-      geometry: {
-        type: "Point",
-        coordinates: getRandomPointCoordinates(bounds),
-      },
-      properties: {
-        name: "marker",
-        description: "",
-      },
-    }));
-  };
+  // const getRandomPoints = (bounds: LngLatBounds): any[] => {
+  //   return Array.from({ length: 40 }, (_, index) => ({
+  //     type: "Feature",
+  //     id: index.toString(),
+  //     geometry: {
+  //       type: "Point",
+  //       coordinates: getRandomPointCoordinates(bounds),
+  //     },
+  //     properties: {
+  //       name: "marker",
+  //       description: "",
+  //     },
+  //   }));
+  // };
 
   // const points = useMemo(() => getRandomPoints(bounds), []);
 
