@@ -45,7 +45,6 @@ import "./Map.css";
 import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
-import { clusterByGrid } from "@yandex/ymaps3-types/packages/clusterer";
 // import { UploadService } from "../../services/uploadService/UploadService";
 
 // import { features } from "./helpers";
@@ -143,8 +142,6 @@ function Map() {
       </div>
     </YMapMarker>
   );
-
-  const gridSizedMethod = useMemo(() => clusterByGrid({ gridSize: 64 }), []);
 
   const seed = (s: number) => () => {
     s = Math.sin(s) * 10000;
@@ -286,7 +283,7 @@ function Map() {
           <YMapCustomClusterer
             marker={marker}
             cluster={cluster}
-            method={gridSizedMethod}
+            gridSize={64}
             features={points}
           />
           <YMapControls position="bottom">
