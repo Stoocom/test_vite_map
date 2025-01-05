@@ -1,4 +1,4 @@
-export const points = [
+export const points: any = [
     {
       type: "Feature",
       id: "0",

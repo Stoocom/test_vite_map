@@ -6,7 +6,7 @@ import {
   LngLatBounds,
 } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -24,6 +24,7 @@ import {
   YMapMarker,
   YMapListener,
   YMapCustomClusterer,
+  YMapClusterer,
   //   YMapContainer,
   //   YMapControlButton,
   //   YMapHintContext,
@@ -45,6 +46,7 @@ import "./Map.css";
 import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
+import { points } from "./helper";
 
 // import { UploadService } from "../../services/uploadService/UploadService";
 
@@ -176,7 +178,7 @@ function Map() {
     }));
   };
 
-  const points = useMemo(() => getRandomPoints(bounds), []);
+  // const points = useMemo(() => getRandomPoints(bounds), []);
 
   // useEffect(() => {
   //   if (currentLocation.zoom !== addLocation.zoom) {
