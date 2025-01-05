@@ -105,21 +105,24 @@ function Map() {
     // console.log("data", data);
   }
 
-  const marker = (feature: any) => (
-    <YMapMarker coordinates={feature.geometry.coordinates}>
-      <div className="add_point">
-        <div
-          className="marker"
-          onClick={(event) => {
-            event.stopPropagation();
-            // console.log("onClick");
-          }}
-        >
-          <MdLocationOn size={70} color="green" title="New" />
+  const marker = (feature: any) => {
+    console.log("marker", feature);
+    return (
+      <YMapMarker coordinates={feature.geometry.coordinates}>
+        <div className="add_point">
+          <div
+            className="marker"
+            onClick={(event) => {
+              event.stopPropagation();
+              // console.log("onClick");
+            }}
+          >
+            <MdLocationOn size={70} color="green" title="New" />
+          </div>
         </div>
-      </div>
-    </YMapMarker>
-  );
+      </YMapMarker>
+    );
+  };
 
   // const onClusterClick = useCallback(
   //   (features: any[]) => {
@@ -135,15 +138,21 @@ function Map() {
   //   [location]
   // );
 
-  const cluster = (coordinates: any, features: any[]) => (
-    <YMapMarker onClick={() => console.log(features)} coordinates={coordinates}>
-      <div className="circle">
-        <div className="circle-content">
-          <span className="circle-text">{features.length}</span>
+  const cluster = (coordinates: any, features: any[]) => {
+    console.log("cluster", coordinates, features);
+    return (
+      <YMapMarker
+        onClick={() => console.log(features)}
+        coordinates={coordinates}
+      >
+        <div className="circle">
+          <div className="circle-content">
+            <span className="circle-text">{features.length}</span>
+          </div>
         </div>
-      </div>
-    </YMapMarker>
-  );
+      </YMapMarker>
+    );
+  };
 
   // const seed = (s: number) => () => {
   //   s = Math.sin(s) * 10000;
