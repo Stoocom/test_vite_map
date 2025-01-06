@@ -5,7 +5,24 @@ import { axiosInstance } from "../axios/axios.instance";
 export const UploadService = {
   async getMarkersByBounds(bounds: any): Promise<any> {
     const { data } = await axiosInstance.post("markers/bounds", bounds);
-    return data;
+    const markers: any = data.map((marker: any) => {
+      console.log("marker", marker);
+      return {
+        type: "Feature",
+        id: marker.id,
+        geometry: {
+          type: "Point",
+          coordinates: [marker.lat, marker.long],
+        },
+        properties: {
+          name: "marker",
+          description: "",
+          link: marker.smallImageLink,
+          rating: marker.rating,
+        },
+      };
+    });
+    return markers;
   },
   async upload(
     file: File,
