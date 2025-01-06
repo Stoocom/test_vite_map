@@ -45,7 +45,7 @@ import "./Map.css";
 import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
-import { points } from "./helper";
+// import { points } from "./helper";
 import { Box } from "@mui/material";
 
 function Map() {
@@ -57,6 +57,8 @@ function Map() {
     zoom: 10,
   });
   const [choosedFile, setChoosedFile] = useState<File | undefined>(undefined);
+  const [points, setPoints] = useState<any[]>([]);
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   console.log("choosedFile ", choosedFile);
@@ -144,7 +146,12 @@ function Map() {
   };
 
   useEffect(() => {
-    UploadService.getMarkersByBounds({ lat: "1111", long: "2222" });
+    const markers: any = UploadService.getMarkersByBounds({
+      lat: "1111",
+      long: "2222",
+    });
+    console.log("useEffect markers", markers);
+    setPoints(markers);
   }, []);
 
   return (
