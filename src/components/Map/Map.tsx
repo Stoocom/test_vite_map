@@ -159,6 +159,8 @@ function Map() {
       });
   }, []);
 
+  console.log(">>>>>>> points", points);
+
   return (
     <div className="container">
       <YMapComponentsProvider
