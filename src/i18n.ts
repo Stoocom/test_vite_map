@@ -15,8 +15,8 @@ i18n
   .use(LanguageDetector)
   .init({
     // resources, // передаем переводы текстов интерфейса в формате JSON
-    lng: "ru",
-    fallbackLng: 'ru', // если переводы на языке пользователя недоступны, то будет использоваться язык, указанный в этом поле
+    lng: "en",
+    fallbackLng: 'en', // если переводы на языке пользователя недоступны, то будет использоваться язык, указанный в этом поле
     debug: true,
     interpolation: {
       escapeValue: false, // экранирование уже есть в React, поэтому отключаем
@@ -24,7 +24,7 @@ i18n
     resources: {
       en: {
         translation: {
-          "hello_world": "Hello, World!1"
+          "hello_world": "Hello"
         }
       },
       ru: {
