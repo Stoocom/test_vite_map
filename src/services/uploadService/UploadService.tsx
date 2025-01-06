@@ -31,6 +31,7 @@ export const UploadService = {
     coordinates: any,
     userId: number
   ): Promise<any> {
+    console.log("upload");
     const formData = new FormData();
     formData.append("file", file);
     formData.append("comment", comment);
