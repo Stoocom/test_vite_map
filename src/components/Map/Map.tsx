@@ -164,12 +164,14 @@ function Map() {
           location={addLocation}
           behaviors={["drag", "pinchZoom", "mouseTilt"]}
         >
-          <YMapCustomClusterer
-            marker={marker}
-            cluster={cluster}
-            gridSize={64}
-            features={points}
-          />
+          {points && points.length > 0 && (
+            <YMapCustomClusterer
+              marker={marker}
+              cluster={cluster}
+              gridSize={64}
+              features={points}
+            />
+          )}
           <YMapDefaultSchemeLayer />
           <YMapDefaultFeaturesLayer />
           {isOpenAddMarker && (
