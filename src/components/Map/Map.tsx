@@ -47,7 +47,6 @@ import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
 // import { points } from "./helper";
 import { Box } from "@mui/material";
-import { Feature } from "@yandex/ymaps3-types/packages/clusterer";
 
 function Map() {
   const { isOpenAddMarker, markerComment, marketRating } =
