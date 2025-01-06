@@ -9,13 +9,19 @@ import {
   setProfile,
 } from "../../services/store/slices/profileSlice";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Form: FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   // const [file, setFile] = useState<any>();
   const [password, setPassword] = useState<string>("");
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+
+  const activeLocale = i18n.resolvedLanguage;
+
+  console.log("activeLocale ", activeLocale);
 
   const regSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
     try {
@@ -69,6 +75,10 @@ const Form: FC = () => {
       <Typography variant="h4" gutterBottom>
         {isLogin ? "Registration" : "Login"}
       </Typography>
+      <Typography variant="h4" gutterBottom>
+        {t("hello_world")}
+      </Typography>
+
       {/* <ImageListItem key={"123445"}>
         <Box
           component="img"
