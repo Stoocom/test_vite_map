@@ -128,6 +128,7 @@ function Map() {
               sx={{
                 height: "100%",
                 width: "100%",
+                borderRadius: "50%",
               }}
               alt="no"
               src={feature.properties.link}
