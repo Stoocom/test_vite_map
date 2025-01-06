@@ -101,13 +101,19 @@ function Map() {
     // console.log("data", data);
   }
 
+  const colors: any = {
+    "1": "green",
+    "2": "yellow",
+    "3": "red",
+  };
+
   const marker = (feature: any) => {
-    console.log("marker ", feature);
+    // console.log("marker ", feature);
     return (
       <YMapMarker coordinates={feature.geometry.coordinates}>
         <div className="add_point">
           <div
-            className="marker"
+            className="img_marker"
             onClick={(event) => {
               event.stopPropagation();
               // console.log("onClick");
@@ -119,6 +125,8 @@ function Map() {
               sx={{
                 height: "100%",
                 width: "100%",
+                borderRadius: "50%",
+                border: `6px solid ${colors[feature.properties.rating]}`,
               }}
               alt="no"
               src={feature.properties.link}

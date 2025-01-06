@@ -14,6 +14,16 @@
   justify-content: center;
 }
 
+.add_point .img_marker {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -70px;
+  left: -30px;
+  display: flex;
+  justify-content: center;
+}
+
 .add_point_marker:hover {
   cursor: pointer;
 }

@@ -48,6 +48,7 @@ export const UploadService = {
         mode: "no-cors",
       },
     });
+
     return data;
   },
 };
