@@ -11,6 +11,7 @@ export const points: Feature[] = [
       properties: {
         name: "marker",
         description: "",
+        link: 'https://drive.google.com/thumbnail?id=1yu28Mzqa-O1EvnAE5Amu8VmNZ3X0Kon5'
       },
     },
     {
@@ -23,6 +24,7 @@ export const points: Feature[] = [
       properties: {
         name: "marker",
         description: "",
+         link: 'https://drive.google.com/thumbnail?id=1yu28Mzqa-O1EvnAE5Amu8VmNZ3X0Kon5'
       },
     },
     {
