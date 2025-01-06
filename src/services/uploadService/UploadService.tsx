@@ -3,6 +3,10 @@ import { toast } from "react-toastify";
 import { axiosInstance } from "../axios/axios.instance";
 
 export const UploadService = {
+  async getMarkersByBounds(bounds: any): Promise<any> {
+    const { data } = await axiosInstance.post("markers/bounds", bounds);
+    return data;
+  },
   async upload(
     file: File,
     comment: string,

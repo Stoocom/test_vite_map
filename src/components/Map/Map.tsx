@@ -6,7 +6,7 @@ import {
   // LngLatBounds,
 } from "@yandex/ymaps3-types";
 import { YMapLocation } from "@yandex/ymaps3-types/imperative/YMap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMap,
@@ -142,6 +142,10 @@ function Map() {
       </YMapMarker>
     );
   };
+
+  useEffect(() => {
+    UploadService.getMarkersByBounds({ lat: "1111", long: "2222" });
+  }, []);
 
   return (
     <div className="container">
