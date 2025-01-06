@@ -216,6 +216,7 @@ function Map() {
                       return;
                     }
                     try {
+                      console.log("UploadService.upload");
                       const result = await UploadService.upload(
                         choosedFile,
                         markerComment,
