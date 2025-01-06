@@ -46,6 +46,7 @@ import { UploadService } from "../../services/uploadService/UploadService";
 import { toast } from "react-toastify";
 import { getProfile } from "../../services/store/slices/profileSlice";
 import { points } from "./helper";
+import { Box } from "@mui/material";
 
 function Map() {
   const { isOpenAddMarker, markerComment, marketRating } =
@@ -110,7 +111,16 @@ function Map() {
               // console.log("onClick");
             }}
           >
-            <MdLocationOn size={70} color="green" title="New" />
+            {/* <MdLocationOn size={70} color="green" title="New" /> */}
+            <Box
+              component="img"
+              sx={{
+                height: "100%",
+                width: "100%",
+              }}
+              alt="no"
+              src={feature.properties.link}
+            />
           </div>
         </div>
       </YMapMarker>
