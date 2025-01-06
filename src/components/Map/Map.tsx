@@ -149,9 +149,14 @@ function Map() {
     const markers: any = UploadService.getMarkersByBounds({
       lat: "1111",
       long: "2222",
-    });
-    console.log("useEffect markers", markers);
-    setPoints(markers);
+    })
+      .then((res) => {
+        console.log("res", res);
+        setPoints(markers);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   }, []);
 
   return (
