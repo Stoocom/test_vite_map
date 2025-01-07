@@ -24,12 +24,26 @@ i18n
     resources: {
       en: {
         translation: {
-          "hello_world": "Hello"
+          "login": "Login",
+          "registration": "Registration",
+          "email": "email",
+          "password": "password",
+          "sign_in": "Sign In",
+          "sign_up": "Sign Up",
+          "to_login": "to login",
+          "to_sign": "to register",
         }
       },
       ru: {
         translation: {
-          "hello_world": "Привет"
+          "login": "Авторизация",
+          "registration": "Регистрация",
+          "email": "почта",
+          "password": "пароль",
+          "sign_in": "Войти",
+          "sign_up": "Зарегистрировать",
+          "to_login": "войти",
+          "to_sign": "к регистрации",
         }
       }
     }

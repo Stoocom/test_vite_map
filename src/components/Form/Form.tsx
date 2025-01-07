@@ -73,49 +73,10 @@ const Form: FC = () => {
   return (
     <form className="" onSubmit={isLogin ? regSubmitHandler : logSubmitHandler}>
       <Typography variant="h4" gutterBottom>
-        {isLogin ? "Registration" : "Login"}
+        {isLogin ? t("registration") : t("login")}
       </Typography>
-      <Typography variant="h4" gutterBottom>
-        {t("hello_world")}
-      </Typography>
-
-      {/* <ImageListItem key={"123445"}>
-        <Box
-          component="img"
-          sx={{
-            height: 233,
-            width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="The Gd"
-          src="https://drive.google.com/thumbnail?id=1JZJ8DiiwQtma5PPWFK-Em0-bVJVrkSuY"
-        />
-        <Box
-          component="img"
-          sx={{
-            height: 233,
-            width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="The Ya"
-          src="https://downloader.disk.yandex.ru/preview/4f80fed2873463ff2b31162cda7ba2d9e19fab3ed6e73faa88cfdd449b8391b5/inf/gJ9KiimGoYbGCe2IrDWcVGycE3C0fjH29HfwRtDDKVygSgSgsryLElCdDXXAJj1BBccTjprd_uY3WWhDvvyBVA%3D%3D?uid=1022693374&filename=%D0%97%D0%B8%D0%BC%D0%B0.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1022693374&tknv=v2&size=XXXS&crop=0"
-        />
-        <Box
-          component="img"
-          sx={{
-            height: 233,
-            width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="The Ya"
-          src="https://disk.yandex.ru/i/sMc5GEW3CG1nuA"
-        />
-      </ImageListItem> */}
       <TextField
-        label="Email"
+        label={t("email")}
         name="email"
         value={email}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -125,7 +86,7 @@ const Form: FC = () => {
         margin="normal"
       />
       <TextField
-        label="Password"
+        label={t("password")}
         name="password"
         value={password}
         type="password"
@@ -145,10 +106,10 @@ const Form: FC = () => {
         }}
       >
         <Button type="submit" variant="contained" color="primary">
-          {isLogin ? "Sign Up" : "Sign In"}
+          {isLogin ? t("sign_up") : t("sign_in")}
         </Button>
         <Link href="#" underline="none" onClick={() => setIsLogin(!isLogin)}>
-          {isLogin ? "To login" : "To register"}
+          {isLogin ? t("to_login") : t("to_sign")}
         </Link>
       </Stack>
     </form>
